@@ -1,4 +1,3 @@
-import React from "react";
 import { AnimeType } from "../../types/Anime.type";
 
 import * as S from "./AnimeCard.styles";

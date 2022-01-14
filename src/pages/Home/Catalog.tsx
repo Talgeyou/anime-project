@@ -1,12 +1,5 @@
-import React from 'react'
-import { Layout } from '../../components/Layout/Layout'
+import { Layout } from "../../components/Layout/Layout";
 
-export const Catalog = (
-    
-) => {
-    return (
-        <Layout>
-            Catalog
-        </Layout>
-    )
-}
+export const Catalog = () => {
+  return <Layout>Catalog</Layout>;
+};

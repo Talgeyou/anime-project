@@ -1,4 +1,3 @@
-import React from "react";
 import { Layout } from "../../components/Layout/Layout";
 import { useQuery } from "@apollo/client";
 import { TopQuery } from "../../queries/Anime.query";

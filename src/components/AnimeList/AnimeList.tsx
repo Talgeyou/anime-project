@@ -1,4 +1,3 @@
-import React from "react";
 import { AnimeListType } from "../../types/AnimeList.type";
 import { AnimeCard } from "../AnimeCard/AnimeCard";
 

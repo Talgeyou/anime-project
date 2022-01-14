@@ -1,4 +1,3 @@
-import React, { lazy } from "react";
 import Picture from "../../assets/images/eris-greyrat.png";
 
 import * as S from "./Hero.styles";
