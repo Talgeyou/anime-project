@@ -12,11 +12,22 @@ button,
 input,
 select,
 textarea {
+  appearance: none;
+  box-sizing: border-box;
   background: none;
   border: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
   &:focus {
     outline: 0;
   }
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  outline: none;
 }
 
 button,

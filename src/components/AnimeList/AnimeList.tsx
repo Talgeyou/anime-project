@@ -33,15 +33,15 @@ export const AnimeList = (props: Props) => {
               <AnimeCard key={anime.id} anime={anime} />
             ))
           : null}
-        {pagination && setSearchParams && searchParams ? (
-          <Pagination
-            currentPage={animeList.pageInfo.currentPage}
-            lastPage={animeList.pageInfo.lastPage}
-            setSearchParams={setSearchParams}
-            searchParams={searchParams}
-          />
-        ) : null}
       </S.List>
+      {pagination && setSearchParams && searchParams ? (
+        <Pagination
+          currentPage={animeList.pageInfo.currentPage}
+          lastPage={animeList.pageInfo.lastPage}
+          setSearchParams={setSearchParams}
+          searchParams={searchParams}
+        />
+      ) : null}
     </S.Wrapper>
   );
 };

@@ -5,13 +5,14 @@ import * as S from "./Layout.styles";
 
 interface Props {
   children?: React.ReactNode;
+  search?: string | null;
 }
 
 export const Layout = (props: Props) => {
-  const { children } = props;
+  const { children, search } = props;
   return (
     <S.Wrapper>
-      <Header />
+      <Header search={search} />
       <S.Content>{children}</S.Content>
     </S.Wrapper>
   );

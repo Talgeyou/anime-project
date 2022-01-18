@@ -3,10 +3,14 @@ import { Navigation } from "../Navigation/Navigation";
 import { NavLink } from "react-router-dom";
 
 import * as S from "./Header.styles";
+import { SearchField } from "../SearchField/SearchField";
 
-interface Props {}
+interface Props {
+  search?: string | null;
+}
 
 export const Header = (props: Props) => {
+  const { search } = props;
   const [isNavigationActive, setIsNavigationActive] = useState(false);
 
   const handleBurgerButtonClick = useCallback(() => {
@@ -24,6 +28,7 @@ export const Header = (props: Props) => {
         <NavLink to={"/"}>Anime Site</NavLink>
       </S.LogoWrapper>
       <Navigation isActive={isNavigationActive} />
+      <SearchField search={search} />
     </S.Wrapper>
   );
 };

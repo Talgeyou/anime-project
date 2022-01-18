@@ -75,3 +75,90 @@ export const OngoingsQuery = gql`
     }
   }
 `;
+
+export const CatalogQuery = gql`
+  query GetCatalog(
+    $page: Int
+    $perPage: Int
+    $format: MediaFormat
+    $status: MediaStatus
+    $episodes: Int
+  ) {
+    Page(page: $page, perPage: $perPage) {
+      pageInfo {
+        total
+        perPage
+        currentPage
+        lastPage
+        hasNextPage
+      }
+      media(
+        type: ANIME
+        format: $format
+        status: $status
+        episodes: $episodes
+      ) {
+        id
+        idMal
+        title {
+          romaji
+          english
+          native
+        }
+        type
+        format
+        status
+        description
+        seasonYear
+        episodes
+        duration
+        coverImage {
+          extraLarge
+          large
+          medium
+          color
+        }
+        genres
+        averageScore
+      }
+    }
+  }
+`;
+
+export const SearchQuery = gql`
+  query GetSearch($page: Int, $perPage: Int, $search: String) {
+    Page(page: $page, perPage: $perPage) {
+      pageInfo {
+        total
+        perPage
+        currentPage
+        lastPage
+        hasNextPage
+      }
+      media(type: ANIME, search: $search) {
+        id
+        idMal
+        title {
+          romaji
+          english
+          native
+        }
+        type
+        format
+        status
+        description
+        seasonYear
+        episodes
+        duration
+        coverImage {
+          extraLarge
+          large
+          medium
+          color
+        }
+        genres
+        averageScore
+      }
+    }
+  }
+`;

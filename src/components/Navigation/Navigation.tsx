@@ -15,7 +15,7 @@ export const Navigation = (props: Props) => {
     <S.Wrapper className={isActive ? "active" : undefined}>
       <S.NavigationList>
         {routes
-          .filter((route) => route.path !== "/")
+          .filter((route) => route.shouldDisplayInNavigation)
           .map((route) => (
             <S.NavigationItem
               key={route.name}
