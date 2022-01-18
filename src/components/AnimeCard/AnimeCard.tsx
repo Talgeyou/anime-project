@@ -19,7 +19,7 @@ export const AnimeCard = (props: Props) => {
         <S.Format>Format: {anime.format}</S.Format>
         <S.GenreList>
           {anime.genres.map((genre) => (
-            <S.Genre key={genre}>{genre}</S.Genre>
+            <S.Genre key={`${anime.id}-${genre}`}>{genre}</S.Genre>
           ))}
         </S.GenreList>
         <S.Description

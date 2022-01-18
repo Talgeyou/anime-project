@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import { TopQuery } from "../../queries/Anime.query";
 import { AnimeListType } from "../../types/AnimeList.type";
 import { AnimeList } from "../../components/AnimeList/AnimeList";
+import { Loader } from "../../components/Loader/Loader";
 
 export const Top = () => {
   const { loading, error, data } = useQuery(TopQuery, {
@@ -12,8 +13,22 @@ export const Top = () => {
     },
   });
 
-  if (loading) return <h1>loading...</h1>;
-  if (error) return <h1>error has been occured</h1>;
+  if (loading)
+    return (
+      <Layout>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Loader />
+        </div>
+      </Layout>
+    );
+  if (error)
+    return (
+      <Layout>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Loader />
+        </div>
+      </Layout>
+    );
   if (data) {
     console.log(data);
     return (
