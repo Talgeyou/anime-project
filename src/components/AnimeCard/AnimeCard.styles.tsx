@@ -118,7 +118,7 @@ export const GenreList = styled.ul`
 
 GenreList.displayName = "AnimeCardGenreList";
 
-export const Genre = styled.div`
+export const Genre = styled.li`
   font-size: 14px;
 `;
 

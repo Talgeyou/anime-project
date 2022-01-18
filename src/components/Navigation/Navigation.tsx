@@ -21,7 +21,9 @@ export const Navigation = (props: Props) => {
               key={route.name}
               className={pathname === route.path ? "active" : undefined}
             >
-              <NavLink to={route.path}>{route.name}</NavLink>
+              <NavLink tabIndex={3} to={route.path}>
+                {route.name}
+              </NavLink>
             </S.NavigationItem>
           ))}
       </S.NavigationList>

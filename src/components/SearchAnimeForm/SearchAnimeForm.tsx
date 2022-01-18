@@ -45,7 +45,12 @@ export const SearchAnimeForm = (props: Props) => {
     <S.Wrapper>
       <S.Field>
         <S.Label htmlFor={"format"}>Format</S.Label>
-        <S.Select id={"format"} value={format} onChange={handleFormatChange}>
+        <S.Select
+          id={"format"}
+          value={format}
+          onChange={handleFormatChange}
+          tabIndex={5}
+        >
           <S.Option value={"TV"}>TV</S.Option>
           <S.Option value={"TV_SHORT"}>Short</S.Option>
           <S.Option value={"SPECIAL"}>Special</S.Option>
@@ -56,7 +61,12 @@ export const SearchAnimeForm = (props: Props) => {
       </S.Field>
       <S.Field>
         <S.Label htmlFor={"status"}>Status</S.Label>
-        <S.Select id={"status"} value={status} onChange={handleStatusChange}>
+        <S.Select
+          id={"status"}
+          value={status}
+          onChange={handleStatusChange}
+          tabIndex={5}
+        >
           <S.Option value={"FINISHED"}>Finished</S.Option>
           <S.Option value={"RELEASING"}>Ongoing</S.Option>
           <S.Option value={"NOT_YET_RELEASED"}>Announced</S.Option>
@@ -73,10 +83,13 @@ export const SearchAnimeForm = (props: Props) => {
           step={1}
           value={episodes}
           onChange={handleEpisodesChange}
+          tabIndex={5}
         />
       </S.Field>
       <S.Field>
-        <S.Button onClick={handleSubmitButtonClick}>Find</S.Button>
+        <S.Button onClick={handleSubmitButtonClick} tabIndex={5}>
+          Find
+        </S.Button>
       </S.Field>
     </S.Wrapper>
   );

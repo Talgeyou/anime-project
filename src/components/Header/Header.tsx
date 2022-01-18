@@ -20,12 +20,14 @@ export const Header = (props: Props) => {
   return (
     <S.Wrapper>
       <S.LogoWrapper>
-        <S.Burger onClick={handleBurgerButtonClick}>
+        <S.Burger tabIndex={2} onClick={handleBurgerButtonClick}>
           <S.BurgerLine></S.BurgerLine>
           <S.BurgerLine></S.BurgerLine>
           <S.BurgerLine></S.BurgerLine>
         </S.Burger>
-        <NavLink to={"/"}>Anime Site</NavLink>
+        <NavLink tabIndex={1} to={"/"}>
+          Anime Site
+        </NavLink>
       </S.LogoWrapper>
       <Navigation isActive={isNavigationActive} />
       <SearchField search={search} />

@@ -29,3 +29,7 @@ export const List = styled.ul`
 `;
 
 List.displayName = "AnimeListList";
+
+export const Item = styled.li``;
+
+Item.displayName = "AnimeListItem";

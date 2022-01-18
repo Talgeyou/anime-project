@@ -1,11 +1,24 @@
 import { useQuery } from "@apollo/client";
 import { useSearchParams } from "react-router-dom";
+import styled from "styled-components";
 import { AnimeList } from "../../components/AnimeList/AnimeList";
 import { Layout } from "../../components/Layout/Layout";
 import { Loader } from "../../components/Loader/Loader";
 import { SearchAnimeForm } from "../../components/SearchAnimeForm/SearchAnimeForm";
 import { CatalogQuery } from "../../queries/Anime.query";
 import { AnimeListType } from "../../types/AnimeList.type";
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
+`;
+
+Container.displayName = "CatalogContainer";
 
 export const Catalog = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -39,7 +52,7 @@ export const Catalog = () => {
 
   return (
     <Layout>
-      <div
+      <Container
         style={{
           display: "flex",
           justifyContent: "center",
@@ -64,7 +77,7 @@ export const Catalog = () => {
             <Loader />
           </div>
         )}
-      </div>
+      </Container>
     </Layout>
   );
 };

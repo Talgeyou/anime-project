@@ -11,10 +11,19 @@ export const AnimeCard = (props: Props) => {
   return (
     <S.Wrapper>
       <S.ImageWrapper>
-        <S.Image src={anime.coverImage.extraLarge} loading="lazy" />
+        <S.Image
+          src={anime.coverImage.extraLarge}
+          srcSet={`${anime.coverImage.extraLarge} 1440w, ${anime.coverImage.large} 1024w, ${anime.coverImage.medium} 768w`}
+          alt={`${
+            anime.title.english || anime.title.romaji || anime.title.native
+          } banner`}
+          loading="lazy"
+        />
       </S.ImageWrapper>
       <S.Meta>
-        <S.Title>{anime.title.english}</S.Title>
+        <S.Title>
+          {anime.title.english || anime.title.romaji || anime.title.native}
+        </S.Title>
         <S.Score>Score: {anime.averageScore / 10}/10</S.Score>
         <S.Format>Format: {anime.format}</S.Format>
         <S.GenreList>

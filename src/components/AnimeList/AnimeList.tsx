@@ -30,7 +30,9 @@ export const AnimeList = (props: Props) => {
       <S.List>
         {animeList && animeList.media
           ? animeList.media.map((anime) => (
-              <AnimeCard key={anime.id} anime={anime} />
+              <S.Item>
+                <AnimeCard key={anime.id} anime={anime} />
+              </S.Item>
             ))
           : null}
       </S.List>
