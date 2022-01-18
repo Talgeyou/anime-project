@@ -1,7 +1,5 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { routes } from "../../routes";
-import { NavLink } from "react-router-dom";
 import { useInput } from "../../hooks/useInput";
 
 import * as S from "./SearchField.styles";
