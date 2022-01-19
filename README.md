@@ -75,7 +75,7 @@ The only thing you need is node.js installed on your computer
 1. Clone the repo
    ```sh
    git clone https://github.com/Talgeyou/anime-project.git
-   cd anishiro
+   cd anime-project
    ```
 2. Install NPM packages
    Using npm:
@@ -119,13 +119,13 @@ Ilya Derevyashkin - Telegram [@otalge](https://t.me/otalge)
 
 Project Link: [https://github.com/Talgeyou/anime-project](https://github.com/Talgeyou/anime-project)
 
-[contributors-shield]: https://img.shields.io/github/contributors/Talgeyou/anishiro.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/Talgeyou/anime-project.svg?style=for-the-badge
 [contributors-url]: https://github.com/Talgeyou/anime-project/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Talgeyou/anishiro.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/Talgeyou/anime-project.svg?style=for-the-badge
 [forks-url]: https://github.com/Talgeyou/anime-project/network/members
-[stars-shield]: https://img.shields.io/github/stars/Talgeyou/anishiro.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/Talgeyou/anime-project.svg?style=for-the-badge
 [stars-url]: https://github.com/Talgeyou/anime-project/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Talgeyou/anishiro.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/Talgeyou/anime-project.svg?style=for-the-badge
 [issues-url]: https://github.com/Talgeyou/anime-project/issues
-[license-shield]: https://img.shields.io/github/license/Talgeyou/anishiro.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/Talgeyou/anime-project.svg?style=for-the-badge
 [license-url]: https://github.com/Talgeyou/anime-project/blob/master/LICENSE.txt
