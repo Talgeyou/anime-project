@@ -1,8 +1,8 @@
-import { Catalog } from "./pages/Home/Catalog";
-import { Home } from "./pages/Home/Home";
-import { Ongoing } from "./pages/Home/Ongoing";
-import { Search } from "./pages/Home/Search";
-import { Top } from "./pages/Home/Top";
+import { Catalog } from "./pages/Catalog";
+import { Home } from "./pages/Home";
+import { Ongoing } from "./pages/Ongoing";
+import { Search } from "./pages/Search";
+import { Top } from "./pages/Top";
 
 export const routes = [
   { name: "Home", path: "/", element: Home, shouldDisplayInNavigation: false },

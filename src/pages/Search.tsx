@@ -1,10 +1,10 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
 import { useSearchParams } from "react-router-dom";
-import { AnimeList } from "../../components/AnimeList/AnimeList";
-import { Layout } from "../../components/Layout/Layout";
-import { Loader } from "../../components/Loader/Loader";
-import { SearchQuery } from "../../queries/Anime.query";
+import { AnimeList } from "../components/AnimeList/AnimeList";
+import { Layout } from "../components/Layout/Layout";
+import { Loader } from "../components/Loader/Loader";
+import { SearchQuery } from "../queries/Anime.query";
 
 export const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();

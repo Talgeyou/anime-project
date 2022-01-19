@@ -83,6 +83,8 @@ export const CatalogQuery = gql`
     $format: MediaFormat
     $status: MediaStatus
     $episodes: Int
+    $releaseYear: Int
+    $sort: [MediaSort]
   ) {
     Page(page: $page, perPage: $perPage) {
       pageInfo {
@@ -97,6 +99,8 @@ export const CatalogQuery = gql`
         format: $format
         status: $status
         episodes: $episodes
+        seasonYear: $releaseYear
+        sort: $sort
       ) {
         id
         idMal

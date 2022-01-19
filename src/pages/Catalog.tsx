@@ -1,12 +1,12 @@
 import { useQuery } from "@apollo/client";
 import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
-import { AnimeList } from "../../components/AnimeList/AnimeList";
-import { Layout } from "../../components/Layout/Layout";
-import { Loader } from "../../components/Loader/Loader";
-import { SearchAnimeForm } from "../../components/SearchAnimeForm/SearchAnimeForm";
-import { CatalogQuery } from "../../queries/Anime.query";
-import { AnimeListType } from "../../types/AnimeList.type";
+import { AnimeList } from "../components/AnimeList/AnimeList";
+import { Layout } from "../components/Layout/Layout";
+import { Loader } from "../components/Loader/Loader";
+import { SearchAnimeForm } from "../components/SearchAnimeForm/SearchAnimeForm";
+import { CatalogQuery } from "../queries/Anime.query";
+import { AnimeListType } from "../types/AnimeList.type";
 
 const Container = styled.div`
   display: flex;
@@ -26,12 +26,16 @@ export const Catalog = () => {
   const format = searchParams.get("format");
   const status = searchParams.get("status");
   const episodes = searchParams.get("episodes");
+  const releaseYear = searchParams.get("releaseYear");
+  const sort = searchParams.get("sort");
   const variables: {
     page: number;
     perPage: number;
     format?: string;
     status?: string;
     episodes?: number;
+    releaseYear?: number;
+    sort?: string;
   } = {
     page: page && Number(page) ? Number(page) : 1,
     perPage: 50,
@@ -44,6 +48,12 @@ export const Catalog = () => {
   }
   if (episodes && Number(episodes)) {
     variables.episodes = Number(episodes);
+  }
+  if (releaseYear && Number(releaseYear)) {
+    variables.releaseYear = Number(releaseYear);
+  }
+  if (sort) {
+    variables.sort = sort;
   }
   console.log({ ...variables });
   const { data } = useQuery(CatalogQuery, {

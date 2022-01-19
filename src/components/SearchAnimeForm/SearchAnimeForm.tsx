@@ -17,12 +17,20 @@ export const SearchAnimeForm = (props: Props) => {
   const oldFormat = searchParams.get("format");
   const oldStatus = searchParams.get("status");
   const oldEpisodes = searchParams.get("episodes");
+  const oldReleaseYear = searchParams.get("releaseYear");
+  const oldSort = searchParams.get("sort");
   const [format, handleFormatChange] = useInput(oldFormat ? oldFormat : "TV");
   const [status, handleStatusChange] = useInput(
     oldStatus ? oldStatus : "FINISHED"
   );
   const [episodes, handleEpisodesChange] = useInput(
     oldEpisodes && +oldEpisodes > 0 ? +oldEpisodes : ""
+  );
+  const [releaseYear, handleReleaseYearChange] = useInput(
+    oldReleaseYear ? oldReleaseYear : ""
+  );
+  const [sort, handleSortChange] = useInput(
+    oldSort ? oldSort : "START_DATE_DESC"
   );
   const handleSubmitButtonClick = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -37,9 +45,15 @@ export const SearchAnimeForm = (props: Props) => {
       if (episodes) {
         newSearchParams.set("episodes", episodes.toString());
       }
+      if (releaseYear) {
+        newSearchParams.set("releaseYear", releaseYear.toString());
+      }
+      if (sort) {
+        newSearchParams.set("sort", sort.toString());
+      }
       setSearchParams(newSearchParams);
     },
-    [episodes, format, setSearchParams, status]
+    [episodes, format, releaseYear, setSearchParams, sort, status]
   );
   return (
     <S.Wrapper>
@@ -85,6 +99,36 @@ export const SearchAnimeForm = (props: Props) => {
           onChange={handleEpisodesChange}
           tabIndex={5}
         />
+      </S.Field>
+      <S.Field>
+        <S.Label htmlFor={"release-year"}>Release Year</S.Label>
+        <S.Input
+          id={"release-year"}
+          type={"number"}
+          min={1}
+          step={1}
+          value={releaseYear}
+          onChange={handleReleaseYearChange}
+          tabIndex={5}
+        />
+      </S.Field>
+      <S.Field>
+        <S.Label htmlFor={"sort"}>Sort</S.Label>
+        <S.Select
+          id={"sort"}
+          value={sort}
+          onChange={handleSortChange}
+          tabIndex={5}
+        >
+          <S.Option value={"SCORE_DESC"}>Score Descending</S.Option>
+          <S.Option value={"SCORE"}>Score Ascending</S.Option>
+          <S.Option value={"POPULARITY_DESC"}>Popularity Descending</S.Option>
+          <S.Option value={"POPULARITY"}>Popularity Ascending</S.Option>
+          <S.Option value={"TRENDING_DESC"}>Trending Descending</S.Option>
+          <S.Option value={"TRENDING"}>Trending Ascending</S.Option>
+          <S.Option value={"START_DATE_DESC"}>Release Date Descending</S.Option>
+          <S.Option value={"START_DATE"}>Release Date Ascending</S.Option>
+        </S.Select>
       </S.Field>
       <S.Field>
         <S.Button onClick={handleSubmitButtonClick} tabIndex={5}>

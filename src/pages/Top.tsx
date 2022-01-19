@@ -1,9 +1,9 @@
-import { Layout } from "../../components/Layout/Layout";
+import { Layout } from "../components/Layout/Layout";
 import { useQuery } from "@apollo/client";
-import { TopQuery } from "../../queries/Anime.query";
-import { AnimeListType } from "../../types/AnimeList.type";
-import { AnimeList } from "../../components/AnimeList/AnimeList";
-import { Loader } from "../../components/Loader/Loader";
+import { TopQuery } from "../queries/Anime.query";
+import { AnimeListType } from "../types/AnimeList.type";
+import { AnimeList } from "../components/AnimeList/AnimeList";
+import { Loader } from "../components/Loader/Loader";
 
 export const Top = () => {
   const { loading, error, data } = useQuery(TopQuery, {
