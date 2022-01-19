@@ -15,8 +15,10 @@ export const NavigationButton = styled.button`
   width: 3em;
   height: 3em;
   color: #030303;
+  transition: background-color 0.2s ease-out;
 
-  &.active {
+  &.active,
+  &:hover {
     background-color: #efdbea;
   }
 `;

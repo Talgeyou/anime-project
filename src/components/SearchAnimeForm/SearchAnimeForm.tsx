@@ -1,6 +1,9 @@
 import React, { useCallback } from "react";
 import { URLSearchParamsInit } from "react-router-dom";
 import { useInput } from "../../hooks/useInput";
+import { Button } from "../Button/Button";
+import { Input } from "../Input/Input";
+import { Select } from "../Select/Select";
 
 import * as S from "./SearchAnimeForm.styles";
 
@@ -57,84 +60,71 @@ export const SearchAnimeForm = (props: Props) => {
   );
   return (
     <S.Wrapper>
-      <S.Field>
-        <S.Label htmlFor={"format"}>Format</S.Label>
-        <S.Select
-          id={"format"}
-          value={format}
-          onChange={handleFormatChange}
-          tabIndex={5}
-        >
-          <S.Option value={"TV"}>TV</S.Option>
-          <S.Option value={"TV_SHORT"}>Short</S.Option>
-          <S.Option value={"SPECIAL"}>Special</S.Option>
-          <S.Option value={"OVA"}>OVA</S.Option>
-          <S.Option value={"ONA"}>ONA</S.Option>
-          <S.Option value={"MUSIC"}>Music</S.Option>
-        </S.Select>
-      </S.Field>
-      <S.Field>
-        <S.Label htmlFor={"status"}>Status</S.Label>
-        <S.Select
-          id={"status"}
-          value={status}
-          onChange={handleStatusChange}
-          tabIndex={5}
-        >
-          <S.Option value={"FINISHED"}>Finished</S.Option>
-          <S.Option value={"RELEASING"}>Ongoing</S.Option>
-          <S.Option value={"NOT_YET_RELEASED"}>Announced</S.Option>
-          <S.Option value={"CANCELLED"}>Cancelled</S.Option>
-          <S.Option value={"HIATUS"}>On Hold</S.Option>
-        </S.Select>
-      </S.Field>
-      <S.Field>
-        <S.Label htmlFor={"episodes"}>Episodes</S.Label>
-        <S.Input
-          id={"episodes"}
-          type={"number"}
-          min={1}
-          step={1}
-          value={episodes}
-          onChange={handleEpisodesChange}
-          tabIndex={5}
-        />
-      </S.Field>
-      <S.Field>
-        <S.Label htmlFor={"release-year"}>Release Year</S.Label>
-        <S.Input
-          id={"release-year"}
-          type={"number"}
-          min={1}
-          step={1}
-          value={releaseYear}
-          onChange={handleReleaseYearChange}
-          tabIndex={5}
-        />
-      </S.Field>
-      <S.Field>
-        <S.Label htmlFor={"sort"}>Sort</S.Label>
-        <S.Select
-          id={"sort"}
-          value={sort}
-          onChange={handleSortChange}
-          tabIndex={5}
-        >
-          <S.Option value={"SCORE_DESC"}>Score Descending</S.Option>
-          <S.Option value={"SCORE"}>Score Ascending</S.Option>
-          <S.Option value={"POPULARITY_DESC"}>Popularity Descending</S.Option>
-          <S.Option value={"POPULARITY"}>Popularity Ascending</S.Option>
-          <S.Option value={"TRENDING_DESC"}>Trending Descending</S.Option>
-          <S.Option value={"TRENDING"}>Trending Ascending</S.Option>
-          <S.Option value={"START_DATE_DESC"}>Release Date Descending</S.Option>
-          <S.Option value={"START_DATE"}>Release Date Ascending</S.Option>
-        </S.Select>
-      </S.Field>
-      <S.Field>
-        <S.Button onClick={handleSubmitButtonClick} tabIndex={5}>
-          Find
-        </S.Button>
-      </S.Field>
+      <Select
+        tabIndex={5}
+        id={"format"}
+        initialValue={format}
+        label={"Format"}
+        onChange={handleFormatChange}
+        options={[
+          { label: "TV", value: "TV" },
+          { label: "Short", value: "SHORT" },
+          { label: "Special", value: "SPECIAL" },
+          { label: "OVA", value: "OVA" },
+          { label: "ONA", value: "ONA" },
+          { label: "Music", value: "MUSIC" },
+        ]}
+      />
+      <Select
+        tabIndex={5}
+        id={"status"}
+        initialValue={status}
+        label={"Status"}
+        onChange={handleStatusChange}
+        options={[
+          { label: "Finished", value: "FINISHED" },
+          { label: "Ongoing", value: "RELEASING" },
+          { label: "Announced", value: "NOT_YET_RELEASED" },
+          { label: "Cancelled", value: "CANCELLED" },
+          { label: "On Hold", value: "HIATUS" },
+        ]}
+      />
+      <Input
+        tabIndex={5}
+        id={"episodes"}
+        initialValue={episodes}
+        number={true}
+        label={"Episodes"}
+        onChange={handleEpisodesChange}
+      />
+      <Input
+        tabIndex={5}
+        id={"release-year"}
+        initialValue={releaseYear}
+        number={true}
+        label={"Release Year"}
+        onChange={handleReleaseYearChange}
+      />
+      <Select
+        tabIndex={5}
+        id={"sort"}
+        initialValue={sort}
+        label={"Sort"}
+        onChange={handleSortChange}
+        options={[
+          { label: "Score Descending", value: "SCORE_DESC" },
+          { label: "Score Ascending", value: "SCORE" },
+          { label: "Popularity Descending", value: "POPULARITY_DESC" },
+          { label: "Popularity Ascending", value: "POPULARITY" },
+          { label: "Trending Descending", value: "TRENDING_DESC" },
+          { label: "Trending Ascending", value: "TRENDING" },
+          { label: "Release Date Descending", value: "START_DATE_DESC" },
+          { label: "Release Date Ascending", value: "START_DATE" },
+        ]}
+      />
+      <Button onClick={handleSubmitButtonClick} tabIndex={5}>
+        Find
+      </Button>
     </S.Wrapper>
   );
 };
