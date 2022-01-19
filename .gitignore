@@ -8,9 +8,9 @@
 /.pnp
 .pnp.js
 
-# # lock files
-# yarn.lock
-# package-lock.json
+# lock files
+yarn.lock
+package-lock.json
 
 # testing
 /coverage
