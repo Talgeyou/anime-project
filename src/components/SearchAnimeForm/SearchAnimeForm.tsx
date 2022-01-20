@@ -21,6 +21,7 @@ export const SearchAnimeForm = (props: Props) => {
   const oldStatus = searchParams.get("status");
   const oldEpisodes = searchParams.get("episodes");
   const oldReleaseYear = searchParams.get("releaseYear");
+  const oldIsAdult = searchParams.get("isAdult");
   const oldSort = searchParams.get("sort");
   const [format, handleFormatChange] = useInput(oldFormat ? oldFormat : "TV");
   const [status, handleStatusChange] = useInput(
@@ -31,6 +32,9 @@ export const SearchAnimeForm = (props: Props) => {
   );
   const [releaseYear, handleReleaseYearChange] = useInput(
     oldReleaseYear ? oldReleaseYear : ""
+  );
+  const [isAdult, handleIsAdultChange] = useInput(
+    oldIsAdult !== null ? oldIsAdult : undefined
   );
   const [sort, handleSortChange] = useInput(
     oldSort ? oldSort : "START_DATE_DESC"
@@ -51,12 +55,15 @@ export const SearchAnimeForm = (props: Props) => {
       if (releaseYear) {
         newSearchParams.set("releaseYear", releaseYear.toString());
       }
+      if (isAdult) {
+        newSearchParams.set("isAdult", isAdult.toString());
+      }
       if (sort) {
         newSearchParams.set("sort", sort.toString());
       }
       setSearchParams(newSearchParams);
     },
-    [episodes, format, releaseYear, setSearchParams, sort, status]
+    [episodes, format, isAdult, releaseYear, setSearchParams, sort, status]
   );
   return (
     <S.Wrapper>
@@ -104,6 +111,18 @@ export const SearchAnimeForm = (props: Props) => {
         number={true}
         label={"Release Year"}
         onChange={handleReleaseYearChange}
+      />
+      <Select
+        tabIndex={5}
+        id={"is-adult"}
+        initialValue={isAdult}
+        label={"For Adult?"}
+        onChange={handleIsAdultChange}
+        options={[
+          { label: "Any", value: undefined },
+          { label: "Yes", value: "true" },
+          { label: "No", value: "false" },
+        ]}
       />
       <Select
         tabIndex={5}

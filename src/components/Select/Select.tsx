@@ -4,12 +4,12 @@ import * as S from "./Select.styles";
 
 type Props = {
   id?: string;
-  initialValue: string | number;
+  initialValue?: string | number;
   label?: React.ReactNode;
   onChange?: (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => void;
-  options: { label: string; value: string | number }[];
+  options: { label: string; value?: string | number }[];
   tabIndex?: number;
 };
 
@@ -29,7 +29,7 @@ export const Select = (props: Props) => {
     <S.Wrapper>
       {label ? <S.Label htmlFor={id}>{label}</S.Label> : null}
       <S.Select value={value} onChange={handleChange} tabIndex={tabIndex}>
-        {options.map((option: { label: string; value: string | number }) => (
+        {options.map((option: { label: string; value?: string | number }) => (
           <S.Option value={option.value}>{option.label}</S.Option>
         ))}
       </S.Select>

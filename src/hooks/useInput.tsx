@@ -1,16 +1,12 @@
 import React, { useCallback, useState } from "react";
 
 export const useInput = (
-  initialValue: number | string
+  initialValue?: number | string
 ): [
-  string | number,
+  string | number | undefined,
   (event: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void
 ] => {
-  const [value, setValue] = useState(
-    typeof initialValue === "number"
-      ? (initialValue as number)
-      : (initialValue as string)
-  );
+  const [value, setValue] = useState(initialValue);
 
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
@@ -25,8 +21,5 @@ export const useInput = (
     []
   );
 
-  return [
-    typeof initialValue === "string" ? (value as string) : (value as number),
-    handleChange,
-  ];
+  return [value, handleChange];
 };

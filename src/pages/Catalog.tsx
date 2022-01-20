@@ -27,6 +27,7 @@ export const Catalog = () => {
   const status = searchParams.get("status");
   const episodes = searchParams.get("episodes");
   const releaseYear = searchParams.get("releaseYear");
+  const isAdult = searchParams.get("isAdult");
   const sort = searchParams.get("sort");
   const variables: {
     page: number;
@@ -35,6 +36,7 @@ export const Catalog = () => {
     status?: string;
     episodes?: number;
     releaseYear?: number;
+    isAdult?: boolean;
     sort?: string;
   } = {
     page: page && Number(page) ? Number(page) : 1,
@@ -52,10 +54,12 @@ export const Catalog = () => {
   if (releaseYear && Number(releaseYear)) {
     variables.releaseYear = Number(releaseYear);
   }
+  if (isAdult === "true" || isAdult === "false") {
+    variables.isAdult = isAdult === "true";
+  }
   if (sort) {
     variables.sort = sort;
   }
-  console.log({ ...variables });
   const { data } = useQuery(CatalogQuery, {
     variables,
   });
