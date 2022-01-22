@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  background-color: #fafafa;
+  width: 100%;
   display: flex;
-  align-items: center;
+  padding: 0 40px;
 `;
 
 Wrapper.displayName = "SearchFieldWrapper";
 
 export const Button = styled.a`
-  padding: 0.25em 0.5em;
+  padding: 8px;
   color: #121212;
   transition: border-color 0.2s ease-out, transform 0.2s ease-out,
     color 0.2s ease-out;
@@ -18,9 +18,11 @@ export const Button = styled.a`
 Button.displayName = "SearchFieldButton";
 
 export const Input = styled.input`
-  border: solid 1px #fafafa;
-  padding: 0.25em 0.5em;
-  color: #121212;
+  flex: 1;
+  border-radius: 10px;
+  border: solid 1px #5d5fef;
+  padding: 8px;
+  color: #5d5fef;
 `;
 
 Input.displayName = "SearchFieldInput";

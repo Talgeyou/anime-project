@@ -11,15 +11,15 @@ export const Wrapper = styled.div`
 Wrapper.displayName = "PaginationWrapper";
 
 export const NavigationButton = styled.button`
-  background-color: #fafafa;
+  background-color: #5d5fef;
   width: 3em;
   height: 3em;
-  color: #030303;
+  color: #fafafa;
   transition: background-color 0.2s ease-out;
 
   &.active,
   &:hover {
-    background-color: #efdbea;
+    background-color: #212121;
   }
 `;
 

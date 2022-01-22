@@ -1,3 +1,4 @@
+import { Anime } from "./pages/Anime";
 import { Catalog } from "./pages/Catalog";
 import { Home } from "./pages/Home";
 import { Ongoing } from "./pages/Ongoing";
@@ -28,6 +29,12 @@ export const routes = [
     name: "Search",
     path: "/search",
     element: Search,
+    shouldDisplayInNavigation: false,
+  },
+  {
+    name: "Anime",
+    path: "/anime/:id",
+    element: Anime,
     shouldDisplayInNavigation: false,
   },
 ];

@@ -39,7 +39,7 @@ export const TopQuery = gql`
 `;
 
 export const OngoingsQuery = gql`
-  query GetOngoings($page: Int, $perPage: Int) {
+  query GetOngoings($page: Int, $perPage: Int, $sort: [MediaSort]) {
     Page(page: $page, perPage: $perPage) {
       pageInfo {
         total
@@ -48,7 +48,7 @@ export const OngoingsQuery = gql`
         lastPage
         hasNextPage
       }
-      media(type: ANIME, sort: START_DATE_DESC, status: RELEASING) {
+      media(type: ANIME, sort: $sort, status: RELEASING) {
         id
         idMal
         title {
@@ -165,6 +165,142 @@ export const SearchQuery = gql`
         genres
         averageScore
       }
+    }
+  }
+`;
+
+export const TrendingQuery = gql`
+  query GetTrending($page: Int, $perPage: Int) {
+    Page(page: $page, perPage: $perPage) {
+      pageInfo {
+        total
+        perPage
+        currentPage
+        lastPage
+        hasNextPage
+      }
+      media(type: ANIME, sort: TRENDING_DESC) {
+        id
+        idMal
+        title {
+          romaji
+          english
+          native
+        }
+        type
+        format
+        status
+        description
+        seasonYear
+        episodes
+        duration
+        coverImage {
+          extraLarge
+          large
+          medium
+          color
+        }
+        genres
+        averageScore
+      }
+    }
+  }
+`;
+
+export const AnimeQuery = gql`
+  query GetAnime($id: Int) {
+    Media(type: ANIME, idMal: $id) {
+      id
+      idMal
+      title {
+        romaji
+        english
+        native
+      }
+      type
+      format
+      status
+      description
+      seasonYear
+      episodes
+      duration
+      coverImage {
+        extraLarge
+        large
+        medium
+        color
+      }
+      genres
+      averageScore
+    }
+  }
+`;
+
+export const AnimeDetailsQuery = gql`
+  query GetAnimeDetails($id: Int) {
+    Media(type: ANIME, idMal: $id) {
+      id
+      idMal
+      bannerImage
+      title {
+        romaji
+        native
+        english
+      }
+      type
+      format
+      status
+      description
+      season
+      seasonYear
+      episodes
+      duration
+      countryOfOrigin
+      source
+      genres
+      synonyms
+      averageScore
+      characters {
+        edges {
+          id
+          role
+          node {
+            id
+            name {
+              full
+            }
+            image {
+              large
+              medium
+            }
+            gender
+            age
+          }
+        }
+      }
+      relations {
+        edges {
+          id
+          relationType
+          node {
+            id
+            idMal
+            type
+            title {
+              english
+              romaji
+              native
+            }
+            coverImage {
+              extraLarge
+              large
+              medium
+              color
+            }
+          }
+        }
+      }
+      isAdult
     }
   }
 `;

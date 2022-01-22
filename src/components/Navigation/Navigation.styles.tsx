@@ -34,15 +34,18 @@ export const NavigationList = styled.ul`
 NavigationList.displayName = "NavigationList";
 
 export const NavigationItem = styled.li`
+  color: #5d5fef;
+  &:hover,
   &.active {
-    color: #efdbea;
+    color: #212121;
   }
 
   @media (max-width: 768px) {
-    color: #777777;
+    color: #5d5fef;
     text-align: center;
+    &:hover,
     &.active {
-      color: #000000;
+      color: #212121;
     }
   }
 `;

@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   min-height: 100vh;
-  background-color: #121212;
-  color: #fafafa;
+  background-color: #fafafa;
+  color: #212121;
   display: flex;
   flex-direction: column;
   gap: 2em;
@@ -15,7 +15,7 @@ export const Content = styled.main`
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin-bottom: 2em;
+  gap: 40px;
 `;
 
 Content.displayName = "Content";

@@ -30,7 +30,6 @@ export const Header = (props: Props) => {
         </NavLink>
       </S.LogoWrapper>
       <Navigation isActive={isNavigationActive} />
-      <SearchField search={search} />
     </S.Wrapper>
   );
 };

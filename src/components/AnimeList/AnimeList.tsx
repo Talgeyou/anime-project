@@ -1,7 +1,7 @@
-import { URLSearchParamsInit } from "react-router-dom";
-import { AnimeListType } from "../../types/AnimeList.type";
 import { AnimeCard } from "../AnimeCard/AnimeCard";
+import { AnimeListType } from "../../types/AnimeList.type";
 import { Pagination } from "../Pagination/Pagination";
+import { URLSearchParamsInit } from "react-router-dom";
 
 import * as S from "./AnimeList.styles";
 
@@ -23,8 +23,8 @@ export const AnimeList = (props: Props) => {
         <Pagination
           currentPage={animeList.pageInfo.currentPage}
           lastPage={animeList.pageInfo.lastPage}
-          setSearchParams={setSearchParams}
           searchParams={searchParams}
+          setSearchParams={setSearchParams}
         />
       ) : null}
       <S.List>
@@ -40,8 +40,8 @@ export const AnimeList = (props: Props) => {
         <Pagination
           currentPage={animeList.pageInfo.currentPage}
           lastPage={animeList.pageInfo.lastPage}
-          setSearchParams={setSearchParams}
           searchParams={searchParams}
+          setSearchParams={setSearchParams}
         />
       ) : null}
     </S.Wrapper>

@@ -28,6 +28,7 @@ export const SearchField = (props: Props) => {
   return (
     <S.Wrapper>
       <S.Input
+        placeholder={"Search anime by name..."}
         required
         value={newSearch}
         onChange={handleSearchChange}
@@ -36,10 +37,6 @@ export const SearchField = (props: Props) => {
         aria-required={"true"}
         onKeyUp={handleEnterPush}
       />
-
-      <S.Button tabIndex={4} onClick={navigateToResult}>
-        <FontAwesomeIcon icon={faSearch} />
-      </S.Button>
     </S.Wrapper>
   );
 };

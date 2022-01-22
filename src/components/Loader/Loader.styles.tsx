@@ -9,6 +9,7 @@ export const LoaderKeyframes = keyframes`
   }`;
 
 export const Wrapper = styled.div`
+  padding: 0 40px;
   display: inline-block;
   position: relative;
   width: 80px;
@@ -24,10 +25,10 @@ export const Chunk = styled.div`
   width: 64px;
   height: 64px;
   margin: 8px;
-  border: 8px solid #fff;
+  border: 8px solid #fafafa;
   border-radius: 50%;
   animation: ${LoaderKeyframes} 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #fff transparent transparent transparent;
+  border-color: #5d5fef transparent transparent transparent;
 
   &:nth-child(1) {
     animation-delay: -0.45s;

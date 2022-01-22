@@ -13,6 +13,7 @@ export const Ongoing = () => {
     variables: {
       page: page,
       perPage: 50,
+      sort: "START_DATE_DESC",
     },
   });
 

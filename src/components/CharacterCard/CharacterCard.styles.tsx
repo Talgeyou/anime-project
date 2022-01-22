@@ -13,7 +13,7 @@ export const ImageWrapper = styled.div`
 
 ImageWrapper.displayName = "AnimeCardImageWrapper";
 
-export const RelationType = styled.div`
+export const Role = styled.div`
   width: 230px;
   font-weight: 400;
   font-size: 18px;
@@ -25,9 +25,21 @@ export const RelationType = styled.div`
   color: ${(props) => props.theme.colors.text.main};
 `;
 
-RelationType.displayName = "AnimeCardRelationType";
+Role.displayName = "AnimeCardRole";
 
-export const Title = styled.h4`
+export const Name = styled.div``;
+
+Name.displayName = "AnimeCardName";
+
+export const Gender = styled.div``;
+
+Gender.displayName = "AnimeCardGender";
+
+export const Age = styled.div``;
+
+Age.displayName = "AnimeCardAge";
+
+export const Meta = styled.div`
   width: 230px;
   font-weight: 400;
   font-size: 18px;
@@ -39,7 +51,7 @@ export const Title = styled.h4`
   color: ${(props) => props.theme.colors.text.main};
 `;
 
-Title.displayName = "AnimeCardTitle";
+Meta.displayName = "AnimeCardMeta";
 
 export const Wrapper = styled.div`
   position: relative;
@@ -47,26 +59,6 @@ export const Wrapper = styled.div`
   flex-direction: column;
   gap: 8px;
   transition: transform 0.3s ease-out;
-  & a {
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-  }
-  &:hover {
-    transform: translateY(-40px);
-    cursor: pointer;
-    ${ImageWrapper} {
-      box-shadow: 0 0 10px #212121;
-    }
-    ${Title} {
-      color: ${(props) => props.theme.colors.text.accent};
-    }
-  }
 `;
 
 Wrapper.displayName = "AnimeCardWrapper";

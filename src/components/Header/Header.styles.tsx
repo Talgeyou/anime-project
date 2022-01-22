@@ -12,6 +12,7 @@ Wrapper.displayName = "HeaderWrapper";
 export const LogoWrapper = styled.div`
   display: flex;
   gap: 1em;
+  color: #5d5fef;
 `;
 
 LogoWrapper.displayName = "HeaderLogoWrapper";

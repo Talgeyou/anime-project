@@ -68,9 +68,10 @@ export const Catalog = () => {
     <Layout>
       <Container
         style={{
-          display: "flex",
-          justifyContent: "center",
+          display: "grid",
+          gridTemplateColumns: "70% 30%",
           gap: "2em",
+          padding: "0 40px",
         }}
       >
         {data ? (

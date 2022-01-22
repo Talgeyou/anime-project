@@ -1,68 +1,71 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.section`
-  flex: 1;
-  padding: 0 20px;
+  padding: 0 40px;
   display: flex;
-  justify-content: space-between;
-  gap: 1em;
-  height: 100%;
+  gap: 40px;
+  overflow: hidden;
 `;
 
 Wrapper.displayName = "HeroWrapper";
 
-export const Left = styled.div`
-  flex: 0 0 50%;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-Left.displayName = "HeroLeft";
-
-export const Right = styled.div`
-  flex: 0 0 50%;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-Right.displayName = "HeroRight";
-
 export const TextWrapper = styled.div`
-  width: 50%;
+  min-width: 20%;
+  max-height: fit-content;
   display: flex;
   flex-direction: column;
-  gap: 2em;
 `;
 
 TextWrapper.displayName = "HeroTextWrapper";
 
 export const Title = styled.h1`
-  color: #efdbea;
   font-weight: 700;
-  font-size: 56px;
+  font-size: 36px;
+  line-height: 43px;
+  letter-spacing: -0.02em;
+
+  color: #5d5fef;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 0px;
 `;
 
 Title.displayName = "HeroTitle";
 
 export const Description = styled.h2`
-  font-size: 20px;
   font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
 
-  @media (max-width: 768px) {
-    display: none;
-  }
+  color: #212121;
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 0px 0px;
 `;
 
 Description.displayName = "HeroDescription";
 
-export const ImageWrapper = styled.div``;
+export const ImageWrapper = styled.div`
+  flex: 0 0 80%;
+  position: relative;
+  overflow: visible;
+`;
 
 ImageWrapper.displayName = "HeroImageWrapper";
 
-export const Image = styled.img``;
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 0 38%;
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
 
 Image.displayName = "HeroImage";
