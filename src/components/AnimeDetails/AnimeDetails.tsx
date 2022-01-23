@@ -11,6 +11,13 @@ type Props = {
 
 export const AnimeDetails = (props: Props) => {
   const { anime } = props;
+  const relatedList = anime.relations.edges
+    .filter((edge) => edge.node.type === "ANIME")
+    .map((edge) => {
+      const anime = { ...edge.node };
+      anime.relationType = edge.relationType;
+      return anime;
+    });
   return (
     <S.Wrapper>
       {anime.bannerImage ? (
@@ -50,16 +57,9 @@ export const AnimeDetails = (props: Props) => {
           label={"Characters"}
           characterList={anime.characters}
         />
-        <HorizontalAnimeCardsList
-          label={"Related"}
-          animeList={anime.relations.edges
-            .filter((edge) => edge.node.type === "ANIME")
-            .map((edge) => {
-              const anime = { ...edge.node };
-              anime.relationType = edge.relationType;
-              return anime;
-            })}
-        />
+        {relatedList.length > 0 ? (
+          <HorizontalAnimeCardsList label={"Related"} animeList={relatedList} />
+        ) : null}
       </S.Meta>
     </S.Wrapper>
   );

@@ -1,4 +1,3 @@
-import { Styles } from "@fortawesome/fontawesome-svg-core";
 import React, { useEffect, useRef, useState } from "react";
 
 import * as S from "./Slider.styles";
@@ -29,12 +28,7 @@ export const Slider = React.memo((props: Props) => {
 
   const handleMouseMove = (event: React.MouseEvent) => {
     if (dragging) {
-      setNewOffsetPosition(
-        Math.max(
-          Math.min(offsetPosition + (event.clientX - startPosition), 0),
-          -sliderWidth + window.innerWidth - 80
-        )
-      );
+      setNewOffsetPosition(offsetPosition + (event.clientX - startPosition));
     }
   };
 
@@ -70,6 +64,16 @@ export const Slider = React.memo((props: Props) => {
   }, [newOffsetPositon]);
 
   useEffect(() => {
+    const fixedOffsetPosition = Math.max(
+      Math.min(offsetPosition, 0),
+      -sliderWidth + window.innerWidth - 80
+    );
+
+    setNewOffsetPosition(fixedOffsetPosition);
+    setOffsetPosition(fixedOffsetPosition);
+  }, [offsetPosition, sliderWidth]);
+
+  useEffect(() => {
     if (sliderRef && sliderRef.current) {
       setSliderWidth(sliderRef.current.offsetWidth);
     }
@@ -97,4 +101,4 @@ export const Slider = React.memo((props: Props) => {
   );
 });
 
-Slider.displayName = "MemoizedSlider";
+Slider.displayName = "Slider";
