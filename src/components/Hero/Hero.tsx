@@ -13,7 +13,7 @@ export const Hero = (props: Props) => {
   return (
     <S.Wrapper>
       <S.TextWrapper>
-        <S.Title>Welcome on&nbsp;the Anime&nbsp;Site</S.Title>
+        <S.Title>Welcome to&nbsp;the Anime&nbsp;Site</S.Title>
         <S.Description>
           Here you can find information about a&nbsp;particular anime
           or&nbsp;discover new anime to&nbsp;watch
