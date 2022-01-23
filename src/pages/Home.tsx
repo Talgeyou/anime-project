@@ -30,15 +30,6 @@ export const Home = React.memo(() => {
       sort: "POPULARITY_DESC",
     },
   });
-  const ongoingsAnimeList = useMemo(
-    () => [...ongoingsData.Page.media],
-    [ongoingsData.Page.media]
-  );
-
-  const trendingAnimeList = useMemo(
-    () => [...trendingData.Page.media],
-    [trendingData.Page.media]
-  );
   return (
     <Layout>
       <SearchField />
@@ -49,7 +40,7 @@ export const Home = React.memo(() => {
         ) : ongoingsError ? null : ongoingsData ? (
           <HorizontalAnimeCardsList
             label={"Winter 2022 anime"}
-            animeList={ongoingsAnimeList}
+            animeList={ongoingsData.Page.media}
           />
         ) : null}
         {trendingLoading ? (
@@ -57,7 +48,7 @@ export const Home = React.memo(() => {
         ) : trendingError ? null : trendingData ? (
           <HorizontalAnimeCardsList
             label={"Trending anime"}
-            animeList={trendingAnimeList}
+            animeList={trendingData.Page.media}
           />
         ) : null}
       </div>

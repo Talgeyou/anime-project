@@ -89,8 +89,8 @@ export const Slider = React.memo((props: Props) => {
         ref={sliderRef}
         style={sliderStyles}
       >
-        {items.map((item) => (
-          <S.Item>{item}</S.Item>
+        {items.map((item, index) => (
+          <S.Item key={index}>{item}</S.Item>
         ))}
       </S.Carousel>
     </S.Wrapper>
