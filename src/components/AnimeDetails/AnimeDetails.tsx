@@ -11,10 +11,6 @@ type Props = {
 
 export const AnimeDetails = (props: Props) => {
   const { anime } = props;
-  console.log(
-    "🚀 ~ file: AnimeDetails.tsx ~ line 12 ~ AnimeDetails ~ anime",
-    anime
-  );
   return (
     <S.Wrapper>
       {anime.bannerImage ? (

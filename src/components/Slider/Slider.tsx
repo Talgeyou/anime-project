@@ -66,20 +66,12 @@ export const Slider = (props: Props) => {
   };
 
   useEffect(() => {
-    console.log(
-      "🚀 ~ file: Slider.tsx ~ line 14 ~ Slider ~ newOffsetPositon",
-      newOffsetPositon
-    );
     setSliderStyles({ transform: `translateX(${newOffsetPositon}px)` });
   }, [newOffsetPositon]);
 
   useEffect(() => {
     if (sliderRef && sliderRef.current) {
       setSliderWidth(sliderRef.current.offsetWidth);
-      console.log(
-        "🚀 ~ file: Slider.tsx ~ line 51 ~ useEffect ~ sliderRef.current.offsetWidth",
-        sliderRef.current.offsetWidth
-      );
     }
   }, [sliderRef]);
 
