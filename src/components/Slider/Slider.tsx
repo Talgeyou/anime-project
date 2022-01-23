@@ -17,6 +17,7 @@ export const Slider = (props: Props) => {
   const [sliderStyles, setSliderStyles] = useState({} as React.CSSProperties);
   const sliderRef = useRef<HTMLUListElement>(null);
   const handleMouseUp = (event: React.MouseEvent) => {
+    event.stopPropagation();
     setDragging(false);
     setOffsetPosition(newOffsetPositon);
   };
@@ -31,6 +32,33 @@ export const Slider = (props: Props) => {
       setNewOffsetPosition(
         Math.max(
           Math.min(offsetPosition + (event.clientX - startPosition), 0),
+          -sliderWidth + window.innerWidth - 80
+        )
+      );
+    }
+  };
+
+  const handleTouchStart = (event: React.TouchEvent) => {
+    event.stopPropagation();
+    setStartPosition(event.touches[0].clientX);
+    setDragging(true);
+  };
+
+  const handleTouchEnd = (event: React.TouchEvent) => {
+    event.stopPropagation();
+    setDragging(false);
+    setOffsetPosition(newOffsetPositon);
+  };
+
+  const handleTouchMove = (event: React.TouchEvent) => {
+    if (dragging) {
+      event.stopPropagation();
+      setNewOffsetPosition(
+        Math.max(
+          Math.min(
+            offsetPosition + (event.touches[0].clientX - startPosition),
+            0
+          ),
           -sliderWidth + window.innerWidth - 80
         )
       );
@@ -60,6 +88,9 @@ export const Slider = (props: Props) => {
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseMove={handleMouseMove}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      onTouchMove={handleTouchMove}
     >
       <S.Carousel
         className={dragging ? "dragging" : undefined}

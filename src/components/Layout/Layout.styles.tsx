@@ -16,6 +16,7 @@ export const Content = styled.main`
   display: flex;
   flex-direction: column;
   gap: 40px;
+  overflow-x: hidden;
 `;
 
 Content.displayName = "Content";
