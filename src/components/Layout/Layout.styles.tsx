@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
 Wrapper.displayName = "PageWrapper";
 
 export const Content = styled.main`
+  overflow-y: hidden;
   flex: 1;
   display: flex;
   flex-direction: column;
