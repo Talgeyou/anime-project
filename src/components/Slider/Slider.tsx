@@ -57,12 +57,15 @@ export const Slider = (props: Props) => {
 
   return (
     <S.Wrapper
-      className={dragging ? "dragging" : undefined}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseMove={handleMouseMove}
     >
-      <S.Carousel ref={sliderRef} style={sliderStyles}>
+      <S.Carousel
+        className={dragging ? "dragging" : undefined}
+        ref={sliderRef}
+        style={sliderStyles}
+      >
         {items.map((item) => (
           <S.Item>{item}</S.Item>
         ))}
