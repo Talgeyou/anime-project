@@ -1,3 +1,4 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { AnimeType } from "../../types/Anime.type";
 
@@ -9,6 +10,10 @@ interface Props {
 
 export const AnimeCard = (props: Props) => {
   const { anime } = props;
+  const handleMouseDown = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    event.preventDefault();
+  };
   return (
     <S.Wrapper>
       {anime.relationType ? (
@@ -30,7 +35,7 @@ export const AnimeCard = (props: Props) => {
         </S.ImageWrapper>
       ) : null}
 
-      <NavLink to={`/anime/${anime.idMal}`}>
+      <NavLink to={`/anime/${anime.idMal}`} onMouseDown={handleMouseDown}>
         <S.Title>
           {anime.title.english || anime.title.romaji || anime.title.native}
         </S.Title>
