@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  overflow-y: hidden;
   min-height: 100vh;
   background-color: #fafafa;
   color: #212121;
