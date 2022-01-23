@@ -34,4 +34,4 @@ export const Hero = React.memo(() => {
   );
 });
 
-Hero.displayName = "MemoizedHero";
+Hero.displayName = "Hero";

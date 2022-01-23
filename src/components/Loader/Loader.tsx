@@ -13,4 +13,4 @@ export const Loader = React.memo(() => {
   );
 });
 
-Loader.displayName = "MemoizedLoader";
+Loader.displayName = "Loader";
