@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.nav`
   @media (max-width: 768px) {
+    z-index: 1000;
     padding: 1em;
     width: 100%;
     height: calc(100vh - 3em);

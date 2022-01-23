@@ -37,7 +37,7 @@ export const BurgerLine = styled.span`
   display: block;
   width: 100%;
   height: 1px;
-  background-color: #fafafa;
+  background-color: ${(props) => props.theme.colors.text.accent};
 `;
 
 BurgerLine.displayName = "HeaderBurgerLine";

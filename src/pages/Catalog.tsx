@@ -9,11 +9,13 @@ import { CatalogQuery } from "../queries/Anime.query";
 import { AnimeListType } from "../types/AnimeList.type";
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 70% 30%;
   gap: 2em;
+  padding: 0 40px;
 
   @media (max-width: 768px) {
+    display: flex;
     flex-direction: column-reverse;
   }
 `;
@@ -66,14 +68,7 @@ export const Catalog = () => {
 
   return (
     <Layout>
-      <Container
-        style={{
-          display: "grid",
-          gridTemplateColumns: "70% 30%",
-          gap: "2em",
-          padding: "0 40px",
-        }}
-      >
+      <Container>
         {data ? (
           <>
             <AnimeList

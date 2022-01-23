@@ -15,12 +15,8 @@ export const Hero = (props: Props) => {
       <S.TextWrapper>
         <S.Title>Welcome on&nbsp;the Anime&nbsp;Site</S.Title>
         <S.Description>
-          Mollit Lorem aute quis laborum velit nisi do&nbsp;deserunt esse velit
-          aliqua anim. Nulla reprehenderit consectetur laborum sunt tempor
-          ea&nbsp;laboris anim excepteur excepteur&nbsp;et. Id&nbsp;ipsum
-          excepteur aliqua aliquip aute ad ex&nbsp;commodo commodo
-          occaecat&nbsp;ad. Et&nbsp;velit magna sint consequat nostrud velit
-          minim anim.
+          Here you can find information about a&nbsp;particular anime
+          or&nbsp;discover new anime to&nbsp;watch
         </S.Description>
       </S.TextWrapper>
       <S.ImageWrapper>
