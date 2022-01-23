@@ -8,7 +8,7 @@ interface Props {
   search?: string | null;
 }
 
-export const Layout = (props: Props) => {
+export const Layout = React.memo((props: Props) => {
   const { children, search } = props;
   return (
     <S.Wrapper>
@@ -16,4 +16,6 @@ export const Layout = (props: Props) => {
       <S.Content>{children}</S.Content>
     </S.Wrapper>
   );
-};
+});
+
+Layout.displayName = "MemoizedLayout";

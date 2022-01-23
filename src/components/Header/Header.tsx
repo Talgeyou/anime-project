@@ -3,13 +3,13 @@ import { Navigation } from "../Navigation/Navigation";
 import { NavLink } from "react-router-dom";
 
 import * as S from "./Header.styles";
-import { SearchField } from "../SearchField/SearchField";
+import React from "react";
 
 interface Props {
   search?: string | null;
 }
 
-export const Header = (props: Props) => {
+export const Header = React.memo((props: Props) => {
   const { search } = props;
   const [isNavigationActive, setIsNavigationActive] = useState(false);
 
@@ -32,4 +32,6 @@ export const Header = (props: Props) => {
       <Navigation isActive={isNavigationActive} />
     </S.Wrapper>
   );
-};
+});
+
+Header.displayName = "MemoizedHeader";

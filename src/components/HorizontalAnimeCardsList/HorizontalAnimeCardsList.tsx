@@ -7,7 +7,7 @@ import * as S from "./HorizontalAnimeCardsList.styles";
 
 type Props = { label?: string; animeList: AnimeType[] };
 
-export const HorizontalAnimeCardsList = (props: Props) => {
+export const HorizontalAnimeCardsList = React.memo((props: Props) => {
   const { animeList, label } = props;
   return (
     <S.Wrapper>
@@ -25,4 +25,6 @@ export const HorizontalAnimeCardsList = (props: Props) => {
       />
     </S.Wrapper>
   );
-};
+});
+
+HorizontalAnimeCardsList.displayName = "MemoizedHorizontalAnimeCardsList";

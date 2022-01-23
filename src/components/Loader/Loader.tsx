@@ -2,9 +2,7 @@ import React from "react";
 
 import * as S from "./Loader.styles";
 
-interface Props {}
-
-export const Loader = (props: Props) => {
+export const Loader = React.memo(() => {
   return (
     <S.Wrapper>
       <S.Chunk></S.Chunk>
@@ -13,4 +11,6 @@ export const Loader = (props: Props) => {
       <S.Chunk></S.Chunk>
     </S.Wrapper>
   );
-};
+});
+
+Loader.displayName = "MemoizedLoader";

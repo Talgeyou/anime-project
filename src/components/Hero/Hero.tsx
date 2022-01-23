@@ -6,10 +6,9 @@ import PicturePNG768 from "../../assets/images/hero-illustration-768w.png";
 import PictureWEBP768 from "../../assets/images/hero-illustration-768w.webp";
 
 import * as S from "./Hero.styles";
+import React from "react";
 
-interface Props {}
-
-export const Hero = (props: Props) => {
+export const Hero = React.memo(() => {
   return (
     <S.Wrapper>
       <S.TextWrapper>
@@ -28,9 +27,11 @@ export const Hero = (props: Props) => {
           <source srcSet={PictureWEBP} />
           <source srcSet={PicturePNG} />
 
-          <S.Image src={PicturePNG} alt={"illustration"} loading={"lazy"} />
+          <S.Image src={PicturePNG} alt={"illustration"} />
         </picture>
       </S.ImageWrapper>
     </S.Wrapper>
   );
-};
+});
+
+Hero.displayName = "MemoizedHero";

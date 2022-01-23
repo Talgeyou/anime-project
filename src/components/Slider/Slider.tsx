@@ -7,7 +7,7 @@ type Props = {
   items: React.ReactNode[];
 };
 
-export const Slider = (props: Props) => {
+export const Slider = React.memo((props: Props) => {
   const { items } = props;
   const [dragging, setDragging] = useState(false);
   const [startPosition, setStartPosition] = useState(0);
@@ -95,4 +95,6 @@ export const Slider = (props: Props) => {
       </S.Carousel>
     </S.Wrapper>
   );
-};
+});
+
+Slider.displayName = "MemoizedSlider";

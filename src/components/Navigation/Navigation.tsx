@@ -2,12 +2,13 @@ import { routes } from "../../routes";
 import { useLocation, NavLink } from "react-router-dom";
 
 import * as S from "./Navigation.styles";
+import React from "react";
 
 interface Props {
   isActive: boolean;
 }
 
-export const Navigation = (props: Props) => {
+export const Navigation = React.memo((props: Props) => {
   const { isActive } = props;
   const location = useLocation();
   const { pathname } = location;
@@ -29,4 +30,6 @@ export const Navigation = (props: Props) => {
       </S.NavigationList>
     </S.Wrapper>
   );
-};
+});
+
+Navigation.displayName = "MemoizedNavigation";

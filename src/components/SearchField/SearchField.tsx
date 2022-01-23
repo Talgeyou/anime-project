@@ -9,7 +9,7 @@ interface Props {
   search?: string | null;
 }
 
-export const SearchField = (props: Props) => {
+export const SearchField = React.memo((props: Props) => {
   const { search } = props;
   const [newSearch, handleSearchChange] = useInput(search ? search : "");
 
@@ -39,4 +39,6 @@ export const SearchField = (props: Props) => {
       />
     </S.Wrapper>
   );
-};
+});
+
+SearchField.displayName = "MemoizedSearchField";

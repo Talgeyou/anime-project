@@ -1,4 +1,5 @@
 import { useQuery } from "@apollo/client";
+import React, { useMemo } from "react";
 import { Hero } from "../components/Hero/Hero";
 import { HorizontalAnimeCardsList } from "../components/HorizontalAnimeCardsList/HorizontalAnimeCardsList";
 import { Layout } from "../components/Layout/Layout";
@@ -6,7 +7,7 @@ import { Loader } from "../components/Loader/Loader";
 import { SearchField } from "../components/SearchField/SearchField";
 import { OngoingsQuery, TrendingQuery } from "../queries/Anime.query";
 
-export const Home = () => {
+export const Home = React.memo(() => {
   const {
     loading: ongoingsLoading,
     error: ongoingsError,
@@ -29,6 +30,15 @@ export const Home = () => {
       sort: "POPULARITY_DESC",
     },
   });
+  const ongoingsAnimeList = useMemo(
+    () => [...ongoingsData.Page.media],
+    [ongoingsData.Page.media]
+  );
+
+  const trendingAnimeList = useMemo(
+    () => [...trendingData.Page.media],
+    [trendingData.Page.media]
+  );
   return (
     <Layout>
       <SearchField />
@@ -39,7 +49,7 @@ export const Home = () => {
         ) : ongoingsError ? null : ongoingsData ? (
           <HorizontalAnimeCardsList
             label={"Winter 2022 anime"}
-            animeList={ongoingsData.Page.media}
+            animeList={ongoingsAnimeList}
           />
         ) : null}
         {trendingLoading ? (
@@ -47,10 +57,12 @@ export const Home = () => {
         ) : trendingError ? null : trendingData ? (
           <HorizontalAnimeCardsList
             label={"Trending anime"}
-            animeList={trendingData.Page.media}
+            animeList={trendingAnimeList}
           />
         ) : null}
       </div>
     </Layout>
   );
-};
+});
+
+Home.displayName = "MemoizedHome";

@@ -8,7 +8,7 @@ interface Props {
   anime: AnimeType;
 }
 
-export const AnimeCard = (props: Props) => {
+export const AnimeCard = React.memo((props: Props) => {
   const { anime } = props;
   const handleMouseDown = (event: React.MouseEvent) => {
     event.stopPropagation();
@@ -49,4 +49,6 @@ export const AnimeCard = (props: Props) => {
       </NavLink>
     </S.Wrapper>
   );
-};
+});
+
+AnimeCard.displayName = "MemoizedAnimeCard";
