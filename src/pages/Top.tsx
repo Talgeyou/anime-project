@@ -30,7 +30,6 @@ export const Top = () => {
       </Layout>
     );
   if (data) {
-    console.log(data);
     return (
       <Layout>
         <AnimeList animeList={data.Page as AnimeListType} />
