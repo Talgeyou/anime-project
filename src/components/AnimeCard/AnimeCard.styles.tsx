@@ -41,6 +41,40 @@ export const Title = styled.h4`
 
 Title.displayName = "AnimeCardTitle";
 
+export const Meta = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: ${(props) => props.theme.colors.background};
+  width: 100%;
+  padding: 1em;
+  transform: translateY(100%);
+  box-shadow: none;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+`;
+
+Meta.displayName = "AnimeCardMeta";
+
+export const Score = styled.div``;
+
+Score.displayName = "AnimeCardScore";
+
+export const Format = styled.div``;
+
+Format.displayName = "AnimeCardFormat";
+
+export const Status = styled.div``;
+
+Status.displayName = "AnimeCardStatus";
+
+export const Episodes = styled.div``;
+
+Episodes.displayName = "AnimeCardEpisodes";
+
+export const Duration = styled.div``;
+
+Duration.displayName = "AnimeCardDuration";
+
 export const Wrapper = styled.div`
   position: relative;
   display: flex;
@@ -58,13 +92,17 @@ export const Wrapper = styled.div`
     }
   }
   &:hover {
-    transform: translateY(-40px);
     cursor: pointer;
     ${ImageWrapper} {
       box-shadow: 0 0 10px #212121;
     }
     ${Title} {
       color: ${(props) => props.theme.colors.text.accent};
+    }
+
+    ${Meta} {
+      box-shadow: 0 0 10px #212121;
+      transform: translateY(0);
     }
   }
 `;

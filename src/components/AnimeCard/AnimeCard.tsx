@@ -32,6 +32,13 @@ export const AnimeCard = (props: Props) => {
             } banner`}
             loading="lazy"
           />
+          <S.Meta>
+            <S.Score>Score: {anime.averageScore / 10}/10</S.Score>
+            <S.Format>Format: {anime.format}</S.Format>
+            <S.Status>Status: {anime.status}</S.Status>
+            <S.Episodes>Episodes: {anime.episodes}</S.Episodes>
+            <S.Duration>Duration: {anime.duration}</S.Duration>
+          </S.Meta>
         </S.ImageWrapper>
       ) : null}
 

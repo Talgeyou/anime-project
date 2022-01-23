@@ -18,6 +18,11 @@ export const TopQuery = gql`
           english
           native
         }
+        averageScore
+        status
+        episodes
+        format
+        duration
         type
         format
         status
@@ -56,6 +61,11 @@ export const OngoingsQuery = gql`
           english
           native
         }
+        averageScore
+        status
+        episodes
+        format
+        duration
         type
         format
         status
@@ -111,6 +121,11 @@ export const CatalogQuery = gql`
           english
           native
         }
+        averageScore
+        status
+        episodes
+        format
+        duration
         type
         format
         status
@@ -149,6 +164,11 @@ export const SearchQuery = gql`
           english
           native
         }
+        averageScore
+        status
+        episodes
+        format
+        duration
         type
         format
         status
@@ -187,6 +207,11 @@ export const TrendingQuery = gql`
           english
           native
         }
+        averageScore
+        status
+        episodes
+        format
+        duration
         type
         format
         status
@@ -217,6 +242,11 @@ export const AnimeQuery = gql`
         english
         native
       }
+      averageScore
+      status
+      episodes
+      format
+      duration
       type
       format
       status

@@ -6,7 +6,12 @@ export type AnimeType = {
     english?: string;
     native?: string;
   };
+  averageScore: number;
+  status: string;
+  episodes: string;
+  duration: string;
   type: string;
+  format: string;
   coverImage: {
     extraLarge?: string;
     large?: string;
