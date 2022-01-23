@@ -6,6 +6,8 @@ export const Wrapper = React.memo(styled.section`
   display: flex;
   gap: 40px;
   overflow: hidden;
+  color: ${(props) => props.theme.colors.text.main};
+  background-color: ${(props) => props.theme.colors.background};
 `);
 
 Wrapper.displayName = "HeroWrapper";
@@ -25,7 +27,7 @@ export const Title = React.memo(styled.h1`
   line-height: 43px;
   letter-spacing: -0.02em;
 
-  color: #5d5fef;
+  color: ${(props) => props.theme.colors.text.accent};
 
   flex: none;
   order: 0;
@@ -41,7 +43,7 @@ export const Description = React.memo(styled.h2`
   line-height: 21px;
   letter-spacing: -0.02em;
 
-  color: #212121;
+  color: inherit;
 
   flex: none;
   order: 1;

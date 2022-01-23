@@ -5,6 +5,8 @@ export const Wrapper = styled.header`
   padding: 1em;
   display: flex;
   gap: 20%;
+  color: ${(props) => props.theme.colors.text.main};
+  background-color: ${(props) => props.theme.colors.background};
 `;
 
 Wrapper.displayName = "HeaderWrapper";

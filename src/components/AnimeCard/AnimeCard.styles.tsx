@@ -46,7 +46,7 @@ const Meta = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: ${(props) => props.theme.colors.transparent};
   width: 100%;
   padding: 1em;
   transform: translateY(100%);

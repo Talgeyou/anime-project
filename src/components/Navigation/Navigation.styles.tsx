@@ -11,7 +11,7 @@ export const Wrapper = styled.nav`
     left: 0;
     transform: translateX(-100%);
 
-    background-color: #fafafa;
+    background-color: ${(props) => props.theme.colors.background};
     &.active {
       transition: transform 0.3s ease-out;
       display: block;
@@ -35,18 +35,18 @@ export const NavigationList = styled.ul`
 NavigationList.displayName = "NavigationList";
 
 export const NavigationItem = styled.li`
-  color: #5d5fef;
+  color: ${(props) => props.theme.colors.text.accent};
   &:hover,
   &.active {
-    color: #212121;
+    color: ${(props) => props.theme.colors.text.main};
   }
 
   @media (max-width: 768px) {
-    color: #5d5fef;
+    color: ${(props) => props.theme.colors.text.accent};
     text-align: center;
     &:hover,
     &.active {
-      color: #212121;
+      color: ${(props) => props.theme.colors.text.main};
     }
   }
 `;

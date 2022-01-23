@@ -5,18 +5,11 @@ export const Wrapper = React.memo(styled.div`
   width: 100%;
   display: flex;
   padding: 0 40px;
+  color: ${(props) => props.theme.colors.text.main};
+  background-color: ${(props) => props.theme.colors.background};
 `);
 
 Wrapper.displayName = "SearchFieldWrapper";
-
-export const Button = React.memo(styled.a`
-  padding: 8px;
-  color: #121212;
-  transition: border-color 0.2s ease-out, transform 0.2s ease-out,
-    color 0.2s ease-out;
-`);
-
-Button.displayName = "SearchFieldButton";
 
 export const Input = React.memo(styled.input`
   flex: 1;

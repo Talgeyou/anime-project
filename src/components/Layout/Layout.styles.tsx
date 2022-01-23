@@ -4,8 +4,9 @@ import styled from "styled-components";
 export const Wrapper = React.memo(styled.div`
   overflow-y: hidden;
   min-height: 100vh;
-  background-color: #fafafa;
-  color: #212121;
+  background-color: ${(props) => props.theme.colors.background};
+
+  color: ${(props) => props.theme.colors.text.main};
   display: flex;
   flex-direction: column;
   gap: 2em;
@@ -14,6 +15,8 @@ export const Wrapper = React.memo(styled.div`
 Wrapper.displayName = "PageWrapper";
 
 export const Content = React.memo(styled.main`
+  color: ${(props) => props.theme.colors.text.main};
+  background-color: ${(props) => props.theme.colors.background};
   overflow-y: hidden;
   flex: 1;
   display: flex;

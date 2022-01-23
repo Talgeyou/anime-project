@@ -19,14 +19,15 @@ export const NavigationButton = styled.button`
 
   &.active,
   &:hover {
-    background-color: #212121;
+    background-color: ${(props) => props.theme.colors.text.main};
+    color: ${(props) => props.theme.colors.background};
   }
 `;
 
 NavigationButton.displayName = "PaginationNavigationButton";
 
 export const NavigationDots = styled.div`
-  color: #efdbea;
+  color: ${(props) => props.theme.colors.text.accent};
 `;
 
 NavigationDots.displayName = "PaginationNavigationDots";

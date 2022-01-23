@@ -64,9 +64,9 @@ export const Slider = React.memo((props: Props) => {
   }, [newOffsetPositon]);
 
   useEffect(() => {
-    const fixedOffsetPosition = Math.max(
-      Math.min(offsetPosition, 0),
-      -sliderWidth + window.innerWidth - 80
+    const fixedOffsetPosition = Math.min(
+      Math.max(offsetPosition, -sliderWidth + window.innerWidth - 80),
+      0
     );
 
     setNewOffsetPosition(fixedOffsetPosition);
