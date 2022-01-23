@@ -1,5 +1,5 @@
 import { Styles } from "@fortawesome/fontawesome-svg-core";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import * as S from "./Slider.styles";
 
@@ -13,7 +13,9 @@ export const Slider = (props: Props) => {
   const [startPosition, setStartPosition] = useState(0);
   const [offsetPosition, setOffsetPosition] = useState(0);
   const [newOffsetPositon, setNewOffsetPosition] = useState(0);
+  const [sliderWidth, setSliderWidth] = useState(0);
   const [sliderStyles, setSliderStyles] = useState({} as React.CSSProperties);
+  const sliderRef = useRef<HTMLUListElement>(null);
   const handleMouseUp = (event: React.MouseEvent) => {
     setDragging(false);
     setOffsetPosition(newOffsetPositon);
@@ -26,7 +28,12 @@ export const Slider = (props: Props) => {
 
   const handleMouseMove = (event: React.MouseEvent) => {
     if (dragging) {
-      setNewOffsetPosition(offsetPosition + (event.clientX - startPosition));
+      setNewOffsetPosition(
+        Math.max(
+          Math.min(offsetPosition + (event.clientX - startPosition), 0),
+          -sliderWidth + window.innerWidth - 80
+        )
+      );
     }
   };
 
@@ -38,6 +45,16 @@ export const Slider = (props: Props) => {
     setSliderStyles({ transform: `translateX(${newOffsetPositon}px)` });
   }, [newOffsetPositon]);
 
+  useEffect(() => {
+    if (sliderRef && sliderRef.current) {
+      setSliderWidth(sliderRef.current.offsetWidth);
+      console.log(
+        "🚀 ~ file: Slider.tsx ~ line 51 ~ useEffect ~ sliderRef.current.offsetWidth",
+        sliderRef.current.offsetWidth
+      );
+    }
+  }, [sliderRef]);
+
   return (
     <S.Wrapper
       className={dragging ? "dragging" : undefined}
@@ -45,7 +62,7 @@ export const Slider = (props: Props) => {
       onMouseUp={handleMouseUp}
       onMouseMove={handleMouseMove}
     >
-      <S.Carousel style={sliderStyles}>
+      <S.Carousel ref={sliderRef} style={sliderStyles}>
         {items.map((item) => (
           <S.Item>{item}</S.Item>
         ))}
