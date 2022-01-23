@@ -10,6 +10,8 @@ Wrapper.displayName = "AnimeDetailsWrapper";
 
 export const ImageWrapper = styled.div`
   position: relative;
+  height: 400px;
+  width: 100%;
   overflow: hidden;
 `;
 
