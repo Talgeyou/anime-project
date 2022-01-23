@@ -1,13 +1,14 @@
+import React from "react";
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const Wrapper = React.memo(styled.div`
   width: 100%;
   overflow: visible;
-`;
+`);
 
 Wrapper.displayName = "SliderWrapper";
 
-export const Carousel = styled.ul`
+export const Carousel = React.memo(styled.ul`
   width: fit-content;
   list-style: none;
   display: flex;
@@ -16,10 +17,10 @@ export const Carousel = styled.ul`
   &.dragging {
     cursor: grabbing;
   }
-`;
+`);
 
 Carousel.displayName = "SliderCarousel";
 
-export const Item = styled.li``;
+export const Item = React.memo(styled.li``);
 
 Item.displayName = "SliderItem";

@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { AnimeType } from "../../types/Anime.type";
 
-import * as S from "./AnimeCard.styles";
+import { Styles as S } from "./AnimeCard.styles";
 
 interface Props {
   anime: AnimeType;
@@ -51,4 +51,4 @@ export const AnimeCard = React.memo((props: Props) => {
   );
 });
 
-AnimeCard.displayName = "MemoizedAnimeCard";
+AnimeCard.displayName = "AnimeCard";

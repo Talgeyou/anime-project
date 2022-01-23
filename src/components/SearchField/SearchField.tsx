@@ -41,4 +41,4 @@ export const SearchField = React.memo((props: Props) => {
   );
 });
 
-SearchField.displayName = "MemoizedSearchField";
+SearchField.displayName = "SearchField";

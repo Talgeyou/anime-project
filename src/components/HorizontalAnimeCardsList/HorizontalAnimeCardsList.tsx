@@ -27,4 +27,4 @@ export const HorizontalAnimeCardsList = React.memo((props: Props) => {
   );
 });
 
-HorizontalAnimeCardsList.displayName = "MemoizedHorizontalAnimeCardsList";
+HorizontalAnimeCardsList.displayName = "HorizontalAnimeCardsList";

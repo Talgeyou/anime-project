@@ -1,6 +1,7 @@
+import React from "react";
 import styled from "styled-components";
 
-export const ImageWrapper = styled.div`
+const ImageWrapper = styled.div`
   margin: 10px;
   border-radius: 10px;
   width: 230px;
@@ -13,7 +14,7 @@ export const ImageWrapper = styled.div`
 
 ImageWrapper.displayName = "AnimeCardImageWrapper";
 
-export const RelationType = styled.div`
+const RelationType = styled.div`
   width: 230px;
   font-weight: 400;
   font-size: 18px;
@@ -27,7 +28,7 @@ export const RelationType = styled.div`
 
 RelationType.displayName = "AnimeCardRelationType";
 
-export const Title = styled.h4`
+const Title = styled.h4`
   width: 230px;
   font-weight: 400;
   font-size: 18px;
@@ -41,7 +42,7 @@ export const Title = styled.h4`
 
 Title.displayName = "AnimeCardTitle";
 
-export const Meta = styled.div`
+const Meta = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
@@ -55,27 +56,27 @@ export const Meta = styled.div`
 
 Meta.displayName = "AnimeCardMeta";
 
-export const Score = styled.div``;
+const Score = styled.div``;
 
 Score.displayName = "AnimeCardScore";
 
-export const Format = styled.div``;
+const Format = styled.div``;
 
 Format.displayName = "AnimeCardFormat";
 
-export const Status = styled.div``;
+const Status = styled.div``;
 
 Status.displayName = "AnimeCardStatus";
 
-export const Episodes = styled.div``;
+const Episodes = styled.div``;
 
 Episodes.displayName = "AnimeCardEpisodes";
 
-export const Duration = styled.div``;
+const Duration = styled.div``;
 
 Duration.displayName = "AnimeCardDuration";
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -109,7 +110,7 @@ export const Wrapper = styled.div`
 
 Wrapper.displayName = "AnimeCardWrapper";
 
-export const Image = styled.img`
+const Image = styled.img`
   width: 100%;
   height: 100%;
   position: absolute;
@@ -118,3 +119,17 @@ export const Image = styled.img`
 `;
 
 Image.displayName = "AnimeCardImage";
+
+export const Styles = {
+  Wrapper: React.memo(Wrapper),
+  RelationType: React.memo(RelationType),
+  ImageWrapper: React.memo(ImageWrapper),
+  Image: React.memo(Image),
+  Meta: React.memo(Meta),
+  Score: React.memo(Score),
+  Format: React.memo(Format),
+  Status: React.memo(Status),
+  Episodes: React.memo(Episodes),
+  Duration: React.memo(Duration),
+  Title: React.memo(Title),
+};

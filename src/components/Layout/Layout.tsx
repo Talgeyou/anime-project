@@ -18,4 +18,4 @@ export const Layout = React.memo((props: Props) => {
   );
 });
 
-Layout.displayName = "MemoizedLayout";
+Layout.displayName = "Layout";

@@ -1,24 +1,25 @@
+import React from "react";
 import styled, { keyframes } from "styled-components";
 
 export const LoaderKeyframes = keyframes`
-0% {
+  0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
   }`;
 
-export const Wrapper = styled.div`
+export const Wrapper = React.memo(styled.div`
   padding: 0 40px;
   display: inline-block;
   position: relative;
   width: 80px;
   height: 80px;
-`;
+`);
 
 Wrapper.displayName = "LoaderWrapper";
 
-export const Chunk = styled.div`
+export const Chunk = React.memo(styled.div`
   box-sizing: border-box;
   display: block;
   position: absolute;
@@ -41,6 +42,6 @@ export const Chunk = styled.div`
   &:nth-child(3) {
     animation-delay: -0.15s;
   }
-`;
+`);
 
 Chunk.displayName = "LoaderChunk";
