@@ -6,7 +6,13 @@ import { Layout } from "../components/Layout/Layout";
 import { Loader } from "../components/Loader/Loader";
 import { SearchQuery } from "../queries/Anime.query";
 
-export const Search = () => {
+type Props = {
+  currentTheme: "dark" | "light";
+  onThemeChange: (theme: "dark" | "light") => void;
+};
+
+export const Search = (props: Props) => {
+  const { currentTheme, onThemeChange } = props;
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get("page");
   const search = searchParams.get("search");
@@ -20,7 +26,11 @@ export const Search = () => {
   });
   if (data) {
     return (
-      <Layout search={search}>
+      <Layout
+        search={search}
+        currentTheme={currentTheme}
+        onThemeChange={onThemeChange}
+      >
         {data.Page ? (
           <AnimeList
             animeList={data.Page}
@@ -33,8 +43,18 @@ export const Search = () => {
     );
   }
   return (
-    <Layout search={search}>
-      <div style={{ display: "flex", justifyContent: "center" }}>
+    <Layout
+      search={search}
+      currentTheme={currentTheme}
+      onThemeChange={onThemeChange}
+    >
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <Loader />
       </div>
     </Layout>

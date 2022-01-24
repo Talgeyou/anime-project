@@ -22,7 +22,13 @@ const Container = styled.div`
 
 Container.displayName = "CatalogContainer";
 
-export const Catalog = () => {
+type Props = {
+  currentTheme: "dark" | "light";
+  onThemeChange: (theme: "dark" | "light") => void;
+};
+
+export const Catalog = (props: Props) => {
+  const { currentTheme, onThemeChange } = props;
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get("page");
   const format = searchParams.get("format");
@@ -67,7 +73,7 @@ export const Catalog = () => {
   });
 
   return (
-    <Layout>
+    <Layout onThemeChange={onThemeChange} currentTheme={currentTheme}>
       <Container>
         {data ? (
           <>
@@ -83,7 +89,13 @@ export const Catalog = () => {
             />
           </>
         ) : (
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <Loader />
           </div>
         )}

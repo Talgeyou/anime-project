@@ -11,7 +11,7 @@ export const Wrapper = styled.nav`
     left: 0;
     transform: translateX(-100%);
 
-    background-color: ${(props) => props.theme.colors.background};
+    background-color: ${(props) => props.theme.colors.background.main};
     &.active {
       transition: transform 0.3s ease-out;
       display: block;

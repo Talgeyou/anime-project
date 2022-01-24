@@ -23,14 +23,14 @@ export const Select = styled.select`
 
   &:focus {
     background-color: ${(props) => props.theme.colors.text.accent};
-    color: #fafafa;
+    color: ${(props) => props.theme.colors.accent};
   }
 `;
 
 Select.displayName = "SelectSelect";
 
 export const Option = styled.option`
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: ${(props) => props.theme.colors.background.main};
   color: ${(props) => props.theme.colors.text.main};
 `;
 

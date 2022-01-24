@@ -1,3 +1,10 @@
+import {
+  faAlignRight,
+  faAngleRight,
+  faArrowRight,
+  faExclamationTriangle,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useRef, useState } from "react";
 
 import * as S from "./Slider.styles";
@@ -22,8 +29,10 @@ export const Slider = React.memo((props: Props) => {
   };
   const handleMouseDown = (event: React.MouseEvent) => {
     event.stopPropagation();
-    setStartPosition(event.clientX);
-    setDragging(true);
+    if (sliderWidth > window.innerWidth) {
+      setStartPosition(event.clientX);
+      setDragging(true);
+    }
   };
 
   const handleMouseMove = (event: React.MouseEvent) => {
@@ -34,8 +43,10 @@ export const Slider = React.memo((props: Props) => {
 
   const handleTouchStart = (event: React.TouchEvent) => {
     event.stopPropagation();
-    setStartPosition(event.touches[0].clientX);
-    setDragging(true);
+    if (sliderWidth > window.innerWidth) {
+      setStartPosition(event.touches[0].clientX);
+      setDragging(true);
+    }
   };
 
   const handleTouchEnd = (event: React.TouchEvent) => {
@@ -59,9 +70,40 @@ export const Slider = React.memo((props: Props) => {
     }
   };
 
+  const handleLeftArrowClick = (event: React.MouseEvent) => {
+    event.stopPropagation();
+
+    const isOneVisible = matchMedia("(max-width: 719px)").matches;
+    const isTwoVisible = matchMedia("(max-width: 1059px)").matches;
+
+    let count = isOneVisible ? 1 : isTwoVisible ? 2 : 3;
+
+    const changedOffsetPosition = offsetPosition + 340 * count;
+
+    setNewOffsetPosition(changedOffsetPosition);
+    setOffsetPosition(changedOffsetPosition);
+  };
+
+  const handleRightArrowClick = (event: React.MouseEvent) => {
+    event.stopPropagation();
+
+    const isOneVisible = matchMedia("(max-width: 719px)").matches;
+    const isTwoVisible = matchMedia("(max-width: 1059px)").matches;
+
+    let count = isOneVisible ? 1 : isTwoVisible ? 2 : 3;
+
+    const changedOffsetPosition = offsetPosition - 340 * count;
+
+    setNewOffsetPosition(changedOffsetPosition);
+    setOffsetPosition(changedOffsetPosition);
+  };
+
   useEffect(() => {
-    setSliderStyles({ transform: `translateX(${newOffsetPositon}px)` });
-  }, [newOffsetPositon]);
+    setSliderStyles({
+      transform: `translateX(${newOffsetPositon}px)`,
+      transition: dragging ? undefined : "transform 0.3s ease-out",
+    });
+  }, [dragging, newOffsetPositon]);
 
   useEffect(() => {
     const fixedOffsetPosition = Math.min(
@@ -88,6 +130,12 @@ export const Slider = React.memo((props: Props) => {
       onTouchEnd={handleTouchEnd}
       onTouchMove={handleTouchMove}
     >
+      <S.LeftArrow
+        onClick={handleLeftArrowClick}
+        style={{ display: sliderWidth < window.innerWidth ? "none" : "block" }}
+      >
+        <FontAwesomeIcon icon={faAngleRight} />
+      </S.LeftArrow>
       <S.Carousel
         className={dragging ? "dragging" : undefined}
         ref={sliderRef}
@@ -97,6 +145,12 @@ export const Slider = React.memo((props: Props) => {
           <S.Item key={index}>{item}</S.Item>
         ))}
       </S.Carousel>
+      <S.RightArrow
+        onClick={handleRightArrowClick}
+        style={{ display: sliderWidth < window.innerWidth ? "none" : "block" }}
+      >
+        <FontAwesomeIcon icon={faAngleRight} />
+      </S.RightArrow>
     </S.Wrapper>
   );
 });

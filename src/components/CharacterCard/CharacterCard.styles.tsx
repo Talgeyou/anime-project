@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const ImageWrapper = styled.div`
+  pointer-events: none;
   margin: 10px;
   border-radius: 10px;
   width: 230px;
@@ -57,13 +58,18 @@ export const Wrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 8px;
   transition: transform 0.3s ease-out;
+  width: 230px;
 `;
 
 Wrapper.displayName = "AnimeCardWrapper";
 
 export const Image = styled.img`
+  pointer-events: none;
+  user-drag: none;
+  user-select: none;
   width: 100%;
   height: 100%;
   position: absolute;

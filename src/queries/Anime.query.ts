@@ -268,7 +268,7 @@ export const AnimeQuery = gql`
 
 export const AnimeDetailsQuery = gql`
   query GetAnimeDetails($id: Int) {
-    Media(type: ANIME, idMal: $id) {
+    Media(type: ANIME, id: $id) {
       id
       idMal
       bannerImage

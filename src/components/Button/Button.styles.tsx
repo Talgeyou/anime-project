@@ -15,8 +15,8 @@ Wrapper.displayName = "ButtonWrapper";
 
 export const Button = styled.button`
   width: 100%;
-  background-color: ${(props) => props.theme.colors.background};
-  color: ${(props) => props.theme.colors.text.accent};
+  background-color: ${(props) => props.theme.colors.background.main};
+  color: ${(props) => props.theme.colors.text.main};
   border: solid 1px ${(props) => props.theme.colors.text.accent};
   border-radius: 10px;
   padding: 0.25em 0.5em;
@@ -25,7 +25,7 @@ export const Button = styled.button`
   &:focus,
   &:hover {
     background-color: ${(props) => props.theme.colors.text.accent};
-    color: ${(props) => props.theme.colors.background};
+    color: ${(props) => props.theme.colors.accent};
   }
 `;
 

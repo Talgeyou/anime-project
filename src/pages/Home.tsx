@@ -12,7 +12,13 @@ const HorizontalAnimeCardsList = React.lazy(() =>
   ).then((module) => ({ default: module.HorizontalAnimeCardsList }))
 );
 
-export const Home = React.memo(() => {
+type Props = {
+  currentTheme: "dark" | "light";
+  onThemeChange: (theme: "dark" | "light") => void;
+};
+
+export const Home = React.memo((props: Props) => {
+  const { currentTheme, onThemeChange } = props;
   const {
     loading: ongoingsLoading,
     error: ongoingsError,
@@ -36,29 +42,73 @@ export const Home = React.memo(() => {
     },
   });
   return (
-    <Layout>
+    <Layout onThemeChange={onThemeChange} currentTheme={currentTheme}>
       <SearchField />
       <Hero />
       <div style={{ padding: "0 40px" }}>
         {ongoingsLoading ? (
-          <Loader />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Loader />
+          </div>
         ) : ongoingsError ? null : ongoingsData ? (
-          <React.Suspense fallback={<Loader />}>
-            <HorizontalAnimeCardsList
-              label={"Winter 2022 anime"}
-              animeList={ongoingsData.Page.media}
-            />
-          </React.Suspense>
+          <div>
+            <React.Suspense
+              fallback={
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Loader />
+                </div>
+              }
+            >
+              <HorizontalAnimeCardsList
+                label={"Winter 2022 anime"}
+                animeList={ongoingsData.Page.media}
+              />
+            </React.Suspense>
+          </div>
         ) : null}
         {trendingLoading ? (
-          <Loader />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Loader />
+          </div>
         ) : trendingError ? null : trendingData ? (
-          <React.Suspense fallback={<Loader />}>
-            <HorizontalAnimeCardsList
-              label={"Trending anime"}
-              animeList={trendingData.Page.media}
-            />
-          </React.Suspense>
+          <div>
+            <React.Suspense
+              fallback={
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Loader />
+                </div>
+              }
+            >
+              <HorizontalAnimeCardsList
+                label={"Trending anime"}
+                animeList={trendingData.Page.media}
+              />
+            </React.Suspense>
+          </div>
         ) : null}
       </div>
     </Layout>

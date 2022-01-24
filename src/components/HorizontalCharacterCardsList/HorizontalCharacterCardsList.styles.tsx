@@ -24,7 +24,7 @@ export const Label = styled.h3`
   line-height: 28px;
   letter-spacing: -0.02em;
 
-  color: #5d5fef;
+  color: ${(props) => props.theme.colors.text.accent};
 `;
 
 Label.displayName = "HorizontalCardsListLabel";

@@ -4,7 +4,7 @@ export const Wrapper = styled.header`
   width: 100%;
   padding: 1em;
   display: flex;
-  gap: 20%;
+  justify-content: space-between;
   color: ${(props) => props.theme.colors.text.main};
   background-color: ${(props) => props.theme.colors.background};
 `;
@@ -14,7 +14,7 @@ Wrapper.displayName = "HeaderWrapper";
 export const LogoWrapper = styled.div`
   display: flex;
   gap: 1em;
-  color: #5d5fef;
+  color: ${(props) => props.theme.colors.text.accent};
 `;
 
 LogoWrapper.displayName = "HeaderLogoWrapper";

@@ -42,7 +42,7 @@ export const AnimeCard = React.memo((props: Props) => {
         </S.ImageWrapper>
       ) : null}
 
-      <NavLink to={`/anime/${anime.idMal}`} onMouseDown={handleMouseDown}>
+      <NavLink to={`/anime/${anime.id}`} onMouseDown={handleMouseDown}>
         <S.Title>
           {anime.title.english || anime.title.romaji || anime.title.native}
         </S.Title>

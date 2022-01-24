@@ -5,7 +5,13 @@ import { AnimeListType } from "../types/AnimeList.type";
 import { AnimeList } from "../components/AnimeList/AnimeList";
 import { Loader } from "../components/Loader/Loader";
 
-export const Top = () => {
+type Props = {
+  currentTheme: "dark" | "light";
+  onThemeChange: (theme: "dark" | "light") => void;
+};
+
+export const Top = (props: Props) => {
+  const { currentTheme, onThemeChange } = props;
   const { loading, error, data } = useQuery(TopQuery, {
     variables: {
       page: 1,
@@ -15,23 +21,35 @@ export const Top = () => {
 
   if (loading)
     return (
-      <Layout>
-        <div style={{ display: "flex", justifyContent: "center" }}>
+      <Layout onThemeChange={onThemeChange} currentTheme={currentTheme}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <Loader />
         </div>
       </Layout>
     );
   if (error)
     return (
-      <Layout>
-        <div style={{ display: "flex", justifyContent: "center" }}>
+      <Layout onThemeChange={onThemeChange} currentTheme={currentTheme}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <Loader />
         </div>
       </Layout>
     );
   if (data) {
     return (
-      <Layout>
+      <Layout onThemeChange={onThemeChange} currentTheme={currentTheme}>
         <AnimeList animeList={data.Page as AnimeListType} />
       </Layout>
     );

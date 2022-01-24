@@ -4,13 +4,15 @@ import { NavLink } from "react-router-dom";
 
 import * as S from "./Header.styles";
 import React from "react";
+import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
 
 interface Props {
-  search?: string | null;
+  currentTheme: "dark" | "light";
+  onThemeChange?: (theme: "dark" | "light") => void;
 }
 
 export const Header = React.memo((props: Props) => {
-  const { search } = props;
+  const { currentTheme, onThemeChange } = props;
   const [isNavigationActive, setIsNavigationActive] = useState(false);
 
   const handleBurgerButtonClick = useCallback(() => {
@@ -30,6 +32,7 @@ export const Header = React.memo((props: Props) => {
         </NavLink>
       </S.LogoWrapper>
       <Navigation isActive={isNavigationActive} />
+      <ThemeSwitcher onChange={onThemeChange} currentTheme={currentTheme} />
     </S.Wrapper>
   );
 });

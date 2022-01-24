@@ -6,8 +6,6 @@ import reportWebVitals from "./reportWebVitals";
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { ThemeProvider } from "styled-components";
-import { lightTheme } from "./themes/light.theme";
-import { darkTheme } from "./themes/dark.theme";
 
 const client = new ApolloClient({
   uri: "https://graphql.anilist.co/",
@@ -17,9 +15,7 @@ const client = new ApolloClient({
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <ThemeProvider theme={lightTheme}>
-        <App />
-      </ThemeProvider>
+      <App />
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById("root")

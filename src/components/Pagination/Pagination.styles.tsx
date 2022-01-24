@@ -11,23 +11,23 @@ export const Wrapper = styled.div`
 Wrapper.displayName = "PaginationWrapper";
 
 export const NavigationButton = styled.button`
-  background-color: #5d5fef;
+  background-color: ${(props) => props.theme.colors.text.accent};
   width: 3em;
   height: 3em;
-  color: #fafafa;
+  color: ${(props) => props.theme.colors.text.main};
   transition: background-color 0.2s ease-out;
 
   &.active,
   &:hover {
     background-color: ${(props) => props.theme.colors.text.main};
-    color: ${(props) => props.theme.colors.background};
+    color: ${(props) => props.theme.colors.background.main};
   }
 `;
 
 NavigationButton.displayName = "PaginationNavigationButton";
 
 export const NavigationDots = styled.div`
-  color: ${(props) => props.theme.colors.text.accent};
+  color: ${(props) => props.theme.colors.text.main};
 `;
 
 NavigationDots.displayName = "PaginationNavigationDots";

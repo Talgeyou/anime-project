@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Wrapper = React.memo(styled.div`
   overflow-y: hidden;
   min-height: 100vh;
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: ${(props) => props.theme.colors.background.main};
 
   color: ${(props) => props.theme.colors.text.main};
   display: flex;

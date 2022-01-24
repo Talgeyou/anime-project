@@ -2,13 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 const ImageWrapper = styled.div`
+  pointer-events: none;
   margin: 10px;
   border-radius: 10px;
   width: 230px;
   height: 325px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 5px #212121;
+  box-shadow: 0 0 5px ${(props) => props.theme.colors.shadow};
   transition: box-shadow 0.3s ease-out;
 `;
 
@@ -46,7 +47,7 @@ const Meta = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: ${(props) => props.theme.colors.transparent};
+  background-color: ${(props) => props.theme.colors.background.transparent};
   width: 100%;
   padding: 1em;
   transform: translateY(100%);
@@ -77,9 +78,11 @@ const Duration = styled.div``;
 Duration.displayName = "AnimeCardDuration";
 
 const Wrapper = styled.div`
+  width: 230px;
   position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 8px;
   transition: transform 0.3s ease-out;
   & a {
@@ -111,6 +114,9 @@ const Wrapper = styled.div`
 Wrapper.displayName = "AnimeCardWrapper";
 
 const Image = styled.img`
+  user-drag: none;
+  user-select: none;
+  pointer-events: none;
   width: 100%;
   height: 100%;
   position: absolute;

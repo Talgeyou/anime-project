@@ -30,7 +30,9 @@ export const Select = (props: Props) => {
       {label ? <S.Label htmlFor={id}>{label}</S.Label> : null}
       <S.Select value={value} onChange={handleChange} tabIndex={tabIndex}>
         {options.map((option: { label: string; value?: string | number }) => (
-          <S.Option value={option.value}>{option.label}</S.Option>
+          <S.Option key={option.label} value={option.value}>
+            {option.label}
+          </S.Option>
         ))}
       </S.Select>
     </S.Wrapper>

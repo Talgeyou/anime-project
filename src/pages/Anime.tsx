@@ -6,17 +6,39 @@ import { Layout } from "../components/Layout/Layout";
 import { Loader } from "../components/Loader/Loader";
 import { AnimeDetailsQuery } from "../queries/Anime.query";
 
-export const Anime = () => {
+type Props = {
+  currentTheme: "dark" | "light";
+  onThemeChange: (theme: "dark" | "light") => void;
+};
+
+export const Anime = (props: Props) => {
+  const { currentTheme, onThemeChange } = props;
   const { id } = useParams();
   const { loading, error, data } = useQuery(AnimeDetailsQuery, {
     variables: { id },
   });
   return (
-    <Layout>
+    <Layout onThemeChange={onThemeChange} currentTheme={currentTheme}>
       {loading ? (
-        <Loader />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Loader />
+        </div>
       ) : error ? (
-        <h1>Not Found</h1>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <h1>Not Found</h1>
+        </div>
       ) : data ? (
         <AnimeDetails anime={data.Media} />
       ) : null}
