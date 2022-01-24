@@ -6,7 +6,24 @@ import { darkTheme } from "../../themes/dark.theme";
 import { lightTheme } from "../../themes/light.theme";
 
 export const App = () => {
-  const [currentTheme, setCurrentTheme] = useState("light" as "dark" | "light");
+  let initialTheme = "light";
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme && (savedTheme === "light" || savedTheme === "dark")) {
+    initialTheme = savedTheme;
+  } else {
+    initialTheme = matchMedia("(prefers-color-scheme: light)").matches
+      ? "light"
+      : "dark";
+  }
+  const [currentTheme, setCurrentTheme] = useState(
+    initialTheme as "dark" | "light"
+  );
+
+  const handleThemeChange = (theme: "dark" | "light") => {
+    setCurrentTheme(theme);
+    localStorage.setItem("theme", theme);
+  };
+
   return (
     <ThemeProvider theme={currentTheme === "light" ? lightTheme : darkTheme}>
       <BrowserRouter>
@@ -17,7 +34,7 @@ export const App = () => {
               path={route.path}
               element={
                 <route.element
-                  onThemeChange={setCurrentTheme}
+                  onThemeChange={handleThemeChange}
                   currentTheme={currentTheme}
                 />
               }
