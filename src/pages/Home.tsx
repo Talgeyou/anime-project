@@ -4,7 +4,11 @@ import { Hero } from "../components/Hero/Hero";
 import { Layout } from "../components/Layout/Layout";
 import { Loader } from "../components/Loader/Loader";
 import { SearchField } from "../components/SearchField/SearchField";
-import { OngoingsQuery, TrendingQuery } from "../queries/Anime.query";
+import {
+  currentSeasonQuery,
+  OngoingsQuery,
+  TrendingQuery,
+} from "../queries/Anime.query";
 
 const HorizontalAnimeCardsList = React.lazy(() =>
   import(
@@ -23,7 +27,7 @@ export const Home = React.memo((props: Props) => {
     loading: ongoingsLoading,
     error: ongoingsError,
     data: ongoingsData,
-  } = useQuery(OngoingsQuery, {
+  } = useQuery(currentSeasonQuery, {
     variables: {
       page: 1,
       perPage: 50,

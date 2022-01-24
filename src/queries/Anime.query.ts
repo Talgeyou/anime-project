@@ -43,6 +43,49 @@ export const TopQuery = gql`
   }
 `;
 
+export const currentSeasonQuery = gql`
+  query GetCurrentSeason($page: Int, $perPage: Int, $sort: [MediaSort]) {
+    Page(page: $page, perPage: $perPage) {
+      pageInfo {
+        total
+        perPage
+        currentPage
+        lastPage
+        hasNextPage
+      }
+      media(type: ANIME, sort: $sort, status: RELEASING, season: WINTER) {
+        id
+        idMal
+        title {
+          romaji
+          english
+          native
+        }
+        averageScore
+        status
+        episodes
+        format
+        duration
+        type
+        format
+        status
+        description
+        seasonYear
+        episodes
+        duration
+        coverImage {
+          extraLarge
+          large
+          medium
+          color
+        }
+        genres
+        averageScore
+      }
+    }
+  }
+`;
+
 export const OngoingsQuery = gql`
   query GetOngoings($page: Int, $perPage: Int, $sort: [MediaSort]) {
     Page(page: $page, perPage: $perPage) {
