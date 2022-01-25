@@ -11,32 +11,36 @@ type Props = { label?: string; itemsList: AnimeType[] | CharacterListType };
 
 export const HorizontalCardsList = React.memo((props: Props) => {
   const { itemsList, label } = props;
-  const items =
+
+  const animes =
+    (itemsList as CharacterListType).edges === undefined
+      ? (itemsList as AnimeType[])
+      : null;
+  const characters =
     (itemsList as CharacterListType).edges !== undefined
       ? (itemsList as CharacterListType).edges
-      : (itemsList as AnimeType[]);
+      : null;
+
   return (
     <section
       className={`${styles["cards-list"]} ${styles["cards-list--horizontal"]}`}
     >
       {label ? <h2 className={styles["cards-list__label"]}>{label}</h2> : null}
-      <Slider
-        items={items.map((item: AnimeType | CharactersEdgeType) => (
-          <Card
-            key={item.id}
-            item={
-              (item as CharactersEdgeType).node
-                ? (item as CharactersEdgeType).node
-                : (item as AnimeType)
-            }
-            role={
-              (item as CharactersEdgeType).node
-                ? (item as CharactersEdgeType).role
-                : undefined
-            }
-          />
-        ))}
-      />
+      {animes ? (
+        <Slider
+          items={animes.map((item: AnimeType) => (
+            <Card key={item.id} item={item} />
+          ))}
+        />
+      ) : null}
+
+      {characters ? (
+        <Slider
+          items={characters.map((item: CharactersEdgeType) => (
+            <Card key={item.id} item={item.node} role={item.role} />
+          ))}
+        />
+      ) : null}
     </section>
   );
 });
