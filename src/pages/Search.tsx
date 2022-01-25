@@ -1,5 +1,5 @@
-import { useQuery } from "@apollo/client";
 import React from "react";
+import { useQuery } from "@apollo/client";
 import { useSearchParams } from "react-router-dom";
 import { AnimeList } from "../components/AnimeList/AnimeList";
 import { Layout } from "../components/Layout/Layout";
@@ -26,11 +26,7 @@ export const Search = (props: Props) => {
   });
   if (data) {
     return (
-      <Layout
-        search={search}
-        currentTheme={currentTheme}
-        onThemeChange={onThemeChange}
-      >
+      <Layout currentTheme={currentTheme} onThemeChange={onThemeChange}>
         {data.Page ? (
           <AnimeList
             animeList={data.Page}
@@ -43,11 +39,7 @@ export const Search = (props: Props) => {
     );
   }
   return (
-    <Layout
-      search={search}
-      currentTheme={currentTheme}
-      onThemeChange={onThemeChange}
-    >
+    <Layout currentTheme={currentTheme} onThemeChange={onThemeChange}>
       <div
         style={{
           display: "flex",

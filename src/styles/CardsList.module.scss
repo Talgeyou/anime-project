@@ -1,8 +1,8 @@
-.anime-cards-list {
+.cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   &--horizontal {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
     overflow: visible;
 
     max-width: 100%;
@@ -15,5 +15,13 @@
     letter-spacing: -0.02em;
 
     color: var(--color-text-accent, #5d5fef);
+  }
+
+  &-items {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }

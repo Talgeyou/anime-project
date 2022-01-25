@@ -2,7 +2,7 @@ import { faCircle, faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 
-import styles from "./ThemeSwitcher.module.scss";
+import styles from "../../styles/ThemeSwitcher.module.scss";
 
 type Props = {
   currentTheme: "light" | "dark";

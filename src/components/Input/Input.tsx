@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import styles from "./Input.module.scss";
+import styles from "../../styles/Form.module.scss";
 
 type Props = {
   id?: string;

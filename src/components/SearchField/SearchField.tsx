@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useInput } from "../../hooks/useInput";
 
-import styles from "./SearchField.module.scss";
+import styles from "../../styles/SearchField.module.scss";
 
 interface Props {
   search?: string | null;

@@ -2,7 +2,7 @@ import React from "react";
 import { routes } from "../../routes";
 import { useLocation, NavLink } from "react-router-dom";
 
-import styles from "./Navigation.module.scss";
+import styles from "../../styles/Navigation.module.scss";
 
 interface Props {
   isActive: boolean;

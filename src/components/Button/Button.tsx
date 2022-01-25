@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./Button.module.scss";
+import styles from "../../styles/Button.module.scss";
 
 type Props = {
   children: React.ReactNode;

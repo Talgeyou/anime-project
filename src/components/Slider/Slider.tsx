@@ -2,7 +2,7 @@ import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useRef, useState } from "react";
 
-import styles from "./Slider.module.scss";
+import styles from "../../styles/Slider.module.scss";
 
 type Props = {
   items: React.ReactNode[];

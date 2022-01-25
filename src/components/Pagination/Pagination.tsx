@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { URLSearchParamsInit } from "react-router-dom";
 
-import styles from "./Pagination.module.scss";
+import styles from "../../styles/Pagination.module.scss";
 
 interface Props {
   currentPage: number;

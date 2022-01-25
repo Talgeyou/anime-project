@@ -4,7 +4,7 @@ import { CharacterListType } from "../../types/CharacterList.type";
 import { CharacterCard } from "../CharacterCard/CharacterCard";
 import { Slider } from "../Slider/Slider";
 
-import styles from "./HorizontalCharacterCardsList.module.scss";
+import styles from "../../styles/CardsList.module.scss";
 
 type Props = { label?: string; characterList: CharacterListType };
 

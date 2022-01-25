@@ -1,7 +1,7 @@
 import React from "react";
 import { Header } from "../Header/Header";
 
-import styles from "./Layout.module.scss";
+import styles from "../../styles/Layout.module.scss";
 
 interface Props {
   children?: React.ReactNode;
@@ -12,9 +12,9 @@ interface Props {
 export const Layout = React.memo((props: Props) => {
   const { children, currentTheme, onThemeChange } = props;
   return (
-    <div className={styles.layout}>
+    <div className={styles.page}>
       <Header onThemeChange={onThemeChange} currentTheme={currentTheme} />
-      <main className={styles.content}>{children}</main>
+      <main className={styles["page-content"]}>{children}</main>
     </div>
   );
 });

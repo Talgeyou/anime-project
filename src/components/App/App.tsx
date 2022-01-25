@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { routes } from "../../routes";
 
-import styles from "./App.module.scss";
+import styles from "../../styles/App.module.scss";
 
 export const App = () => {
   let initialTheme = "light";

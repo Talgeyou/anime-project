@@ -7,7 +7,7 @@ import PictureWEBP1024 from "../../assets/images/hero-illustration-1024w.webp";
 import PicturePNG768 from "../../assets/images/hero-illustration-768w.png";
 import PictureWEBP768 from "../../assets/images/hero-illustration-768w.webp";
 
-import styles from "./Hero.module.scss";
+import styles from "../../styles/Hero.module.scss";
 
 export const Hero = React.memo(() => {
   return (
