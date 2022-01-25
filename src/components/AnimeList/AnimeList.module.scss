@@ -1,0 +1,12 @@
+.anime-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  &-items {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

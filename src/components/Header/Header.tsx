@@ -1,10 +1,10 @@
+import React from "react";
+import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
 import { useCallback, useState } from "react";
 import { Navigation } from "../Navigation/Navigation";
 import { NavLink } from "react-router-dom";
 
-import * as S from "./Header.styles";
-import React from "react";
-import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
+import styles from "./Header.module.scss";
 
 interface Props {
   currentTheme: "dark" | "light";
@@ -20,20 +20,24 @@ export const Header = React.memo((props: Props) => {
   }, [isNavigationActive]);
 
   return (
-    <S.Wrapper>
-      <S.LogoWrapper>
-        <S.Burger tabIndex={2} onClick={handleBurgerButtonClick}>
-          <S.BurgerLine></S.BurgerLine>
-          <S.BurgerLine></S.BurgerLine>
-          <S.BurgerLine></S.BurgerLine>
-        </S.Burger>
+    <header className={styles.header}>
+      <div className={styles.logo}>
+        <button
+          className={styles.burger}
+          tabIndex={2}
+          onClick={handleBurgerButtonClick}
+        >
+          <span className={styles.burger__line}></span>
+          <span className={styles.burger__line}></span>
+          <span className={styles.burger__line}></span>
+        </button>
         <NavLink tabIndex={1} to={"/"}>
           Anime Site
         </NavLink>
-      </S.LogoWrapper>
+      </div>
       <Navigation isActive={isNavigationActive} />
       <ThemeSwitcher onChange={onThemeChange} currentTheme={currentTheme} />
-    </S.Wrapper>
+    </header>
   );
 });
 

@@ -2,8 +2,8 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { routes } from "../../routes";
-import { darkTheme } from "../../themes/dark.theme";
-import { lightTheme } from "../../themes/light.theme";
+
+import styles from "./App.module.scss";
 
 export const App = () => {
   let initialTheme = "light";
@@ -25,7 +25,7 @@ export const App = () => {
   };
 
   return (
-    <ThemeProvider theme={currentTheme === "light" ? lightTheme : darkTheme}>
+    <div className={currentTheme === "light" ? styles.light : styles.dark}>
       <BrowserRouter>
         <Routes>
           {routes.map((route) => (
@@ -42,6 +42,6 @@ export const App = () => {
           ))}
         </Routes>
       </BrowserRouter>
-    </ThemeProvider>
+    </div>
   );
 };

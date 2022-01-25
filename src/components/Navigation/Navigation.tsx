@@ -1,8 +1,8 @@
+import React from "react";
 import { routes } from "../../routes";
 import { useLocation, NavLink } from "react-router-dom";
 
-import * as S from "./Navigation.styles";
-import React from "react";
+import styles from "./Navigation.module.scss";
 
 interface Props {
   isActive: boolean;
@@ -13,22 +13,30 @@ export const Navigation = React.memo((props: Props) => {
   const location = useLocation();
   const { pathname } = location;
   return (
-    <S.Wrapper className={isActive ? "active" : undefined}>
-      <S.NavigationList>
+    <nav
+      className={
+        isActive ? `${styles.navigation} ${styles.active}` : styles.navigation
+      }
+    >
+      <ul className={styles["navigation-list"]}>
         {routes
           .filter((route) => route.shouldDisplayInNavigation)
           .map((route) => (
-            <S.NavigationItem
+            <li
               key={route.name}
-              className={pathname === route.path ? "active" : undefined}
+              className={
+                pathname === route.path
+                  ? `${styles["navigation-list__item"]} ${styles.active}`
+                  : styles["navigation-list__item"]
+              }
             >
               <NavLink tabIndex={3} to={route.path}>
                 {route.name}
               </NavLink>
-            </S.NavigationItem>
+            </li>
           ))}
-      </S.NavigationList>
-    </S.Wrapper>
+      </ul>
+    </nav>
   );
 });
 

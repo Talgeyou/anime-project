@@ -2,7 +2,7 @@ import { faCircle, faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 
-import { Styles as S } from "./ThemeSwitcher.styles";
+import styles from "./ThemeSwitcher.module.scss";
 
 type Props = {
   currentTheme: "light" | "dark";
@@ -22,30 +22,49 @@ export const ThemeSwitcher = (props: Props) => {
     }
   };
   return (
-    <S.Wrapper className={theme === "dark" ? "dark" : "light"}>
-      <S.Label>
-        <S.Radio
+    <fieldset
+      className={
+        theme === "dark"
+          ? `${styles["theme-switcher"]} ${styles["theme-switcher--dark"]}`
+          : `${styles["theme-switcher"]} ${styles["theme-switcher--light"]}`
+      }
+    >
+      <label className={styles["theme-switcher__label"]}>
+        <input
+          className={styles["theme-switcher__button"]}
+          tabIndex={4}
           type={"radio"}
           value={"light"}
           name={"theme"}
           checked={theme === "light"}
           onChange={handleChange}
         />
-        <FontAwesomeIcon icon={faSun} className={"icon icon--sun"} />
-      </S.Label>
+        <FontAwesomeIcon
+          icon={faSun}
+          className={`${styles["theme-switcher__icon"]} ${styles["theme-switcher__icon--sun"]}`}
+        />
+      </label>
 
-      <S.Label>
-        <S.Radio
+      <label className={styles["theme-switcher__label"]}>
+        <input
+          className={styles["theme-switcher__button"]}
+          tabIndex={4}
           type={"radio"}
           value={"dark"}
           name={"theme"}
           checked={theme === "dark"}
           onChange={handleChange}
         />
-        <FontAwesomeIcon icon={faMoon} className={"icon icon--moon"} />
-      </S.Label>
+        <FontAwesomeIcon
+          icon={faMoon}
+          className={`${styles["theme-switcher__icon"]} ${styles["theme-switcher__icon--moon"]}`}
+        />
+      </label>
 
-      <FontAwesomeIcon icon={faCircle} className={"icon icon--status"} />
-    </S.Wrapper>
+      <FontAwesomeIcon
+        icon={faCircle}
+        className={`${styles["theme-switcher__icon"]} ${styles["theme-switcher__icon--status"]}`}
+      />
+    </fieldset>
   );
 };

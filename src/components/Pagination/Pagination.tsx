@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { URLSearchParamsInit } from "react-router-dom";
 
-import * as S from "./Pagination.styles";
+import styles from "./Pagination.module.scss";
 
 interface Props {
   currentPage: number;
@@ -43,26 +43,34 @@ export const Pagination = (props: Props) => {
     if (number >= 1 && number <= lastPage) {
       if (number === currentPage - 1 && currentPage - 2 > 0) {
         elements.push(
-          <S.NavigationDots key={"prefixGapPagination"}>...</S.NavigationDots>
+          <div className={"pagination__gap"} key={"prefixGapPagination"}>
+            ...
+          </div>
         );
       }
       elements.push(
-        <S.NavigationButton
-          className={currentPage === number ? "active" : undefined}
+        <button
+          className={
+            currentPage === number
+              ? `${styles["pagination__button"]} ${styles["pagination__button--active"]}`
+              : styles["pagination__button"]
+          }
           key={number}
           data-id={number}
           onClick={handleChangePageButtonClick}
         >
           {number}
-        </S.NavigationButton>
+        </button>
       );
       if (number === currentPage + 1 && number + 2 < lastPage) {
         elements.push(
-          <S.NavigationDots key={"suffixGapPagination"}>...</S.NavigationDots>
+          <div className={"pagination__gap"} key={"suffixGapPagination"}>
+            ...
+          </div>
         );
       }
     }
   });
 
-  return <S.Wrapper>{elements}</S.Wrapper>;
+  return <ul className={styles.pagination}>{elements}</ul>;
 };

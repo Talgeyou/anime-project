@@ -8,19 +8,7 @@ import { SearchAnimeForm } from "../components/SearchAnimeForm/SearchAnimeForm";
 import { CatalogQuery } from "../queries/Anime.query";
 import { AnimeListType } from "../types/AnimeList.type";
 
-const Container = styled.div`
-  display: grid;
-  grid-template-columns: 70% 30%;
-  gap: 2em;
-  padding: 0 40px;
-
-  @media (max-width: 768px) {
-    display: flex;
-    flex-direction: column-reverse;
-  }
-`;
-
-Container.displayName = "CatalogContainer";
+import styles from "./Catalog.module.scss";
 
 type Props = {
   currentTheme: "dark" | "light";
@@ -74,7 +62,7 @@ export const Catalog = (props: Props) => {
 
   return (
     <Layout onThemeChange={onThemeChange} currentTheme={currentTheme}>
-      <Container>
+      <section className={styles.catalog}>
         {data ? (
           <>
             <AnimeList
@@ -99,7 +87,7 @@ export const Catalog = (props: Props) => {
             <Loader />
           </div>
         )}
-      </Container>
+      </section>
     </Layout>
   );
 };

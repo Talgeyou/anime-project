@@ -1,7 +1,7 @@
+import React, { useCallback } from "react";
 import { useInput } from "../../hooks/useInput";
 
-import * as S from "./SearchField.styles";
-import React, { useCallback } from "react";
+import styles from "./SearchField.module.scss";
 
 interface Props {
   search?: string | null;
@@ -24,8 +24,9 @@ export const SearchField = React.memo((props: Props) => {
     [navigateToResult]
   );
   return (
-    <S.Wrapper>
-      <S.Input
+    <section className={styles.search}>
+      <input
+        className={styles.search__input}
         placeholder={"Search anime by name..."}
         required
         value={newSearch}
@@ -35,7 +36,7 @@ export const SearchField = React.memo((props: Props) => {
         aria-required={"true"}
         onKeyUp={handleEnterPush}
       />
-    </S.Wrapper>
+    </section>
   );
 });
 

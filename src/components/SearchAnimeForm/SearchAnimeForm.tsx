@@ -5,7 +5,7 @@ import { Button } from "../Button/Button";
 import { Input } from "../Input/Input";
 import { Select } from "../Select/Select";
 
-import * as S from "./SearchAnimeForm.styles";
+import styles from "./SearchAnimeForm.module.scss";
 
 interface Props {
   searchParams: URLSearchParams;
@@ -66,7 +66,7 @@ export const SearchAnimeForm = (props: Props) => {
     [episodes, format, isAdult, releaseYear, setSearchParams, sort, status]
   );
   return (
-    <S.Wrapper>
+    <form className={styles["search-form--anime"]}>
       <Select
         tabIndex={5}
         id={"format"}
@@ -144,6 +144,6 @@ export const SearchAnimeForm = (props: Props) => {
       <Button onClick={handleSubmitButtonClick} tabIndex={5}>
         Find
       </Button>
-    </S.Wrapper>
+    </form>
   );
 };

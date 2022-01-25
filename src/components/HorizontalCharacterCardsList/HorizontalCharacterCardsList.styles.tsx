@@ -11,13 +11,6 @@ export const Wrapper = styled.section`
 
 Wrapper.displayName = "HorizontalCardsListWrapper";
 
-export const Items = styled.div`
-  display: flex;
-  gap: 40px;
-`;
-
-Items.displayName = "HorizontalCardsListItems";
-
 export const Label = styled.h3`
   font-weight: 400;
   font-size: 24px;

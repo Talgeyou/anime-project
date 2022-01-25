@@ -3,7 +3,7 @@ import { AnimeListType } from "../../types/AnimeList.type";
 import { Pagination } from "../Pagination/Pagination";
 import { URLSearchParamsInit } from "react-router-dom";
 
-import * as S from "./AnimeList.styles";
+import styles from "./AnimeList.module.scss";
 
 interface Props {
   animeList: AnimeListType;
@@ -18,7 +18,7 @@ interface Props {
 export const AnimeList = (props: Props) => {
   const { animeList, pagination, setSearchParams, searchParams } = props;
   return (
-    <S.Wrapper>
+    <section className={styles["anime-list"]}>
       {pagination && setSearchParams && searchParams ? (
         <Pagination
           currentPage={animeList.pageInfo.currentPage}
@@ -27,15 +27,15 @@ export const AnimeList = (props: Props) => {
           setSearchParams={setSearchParams}
         />
       ) : null}
-      <S.List>
+      <ul className={styles["anime-list-items"]}>
         {animeList && animeList.media
           ? animeList.media.map((anime) => (
-              <S.Item key={anime.id}>
+              <li key={anime.id} className={styles["anime-list-items__item"]}>
                 <AnimeCard anime={anime} />
-              </S.Item>
+              </li>
             ))
           : null}
-      </S.List>
+      </ul>
       {pagination && setSearchParams && searchParams ? (
         <Pagination
           currentPage={animeList.pageInfo.currentPage}
@@ -44,6 +44,6 @@ export const AnimeList = (props: Props) => {
           setSearchParams={setSearchParams}
         />
       ) : null}
-    </S.Wrapper>
+    </section>
   );
 };

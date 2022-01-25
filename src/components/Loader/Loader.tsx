@@ -1,15 +1,15 @@
 import React from "react";
 
-import * as S from "./Loader.styles";
+import styles from "./Loader.module.scss";
 
 export const Loader = React.memo(() => {
   return (
-    <S.Wrapper>
-      <S.Chunk></S.Chunk>
-      <S.Chunk></S.Chunk>
-      <S.Chunk></S.Chunk>
-      <S.Chunk></S.Chunk>
-    </S.Wrapper>
+    <div className={styles.loader}>
+      <div className={styles.loader__chunk}></div>
+      <div className={styles.loader__chunk}></div>
+      <div className={styles.loader__chunk}></div>
+      <div className={styles.loader__chunk}></div>
+    </div>
   );
 });
 

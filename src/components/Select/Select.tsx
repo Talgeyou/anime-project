@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import * as S from "./Select.styles";
+import styles from "./Select.module.scss";
 
 type Props = {
   id?: string;
@@ -26,15 +26,28 @@ export const Select = (props: Props) => {
   };
 
   return (
-    <S.Wrapper>
-      {label ? <S.Label htmlFor={id}>{label}</S.Label> : null}
-      <S.Select value={value} onChange={handleChange} tabIndex={tabIndex}>
+    <div className={styles["form-field"]}>
+      {label ? (
+        <label className={styles["form-field__label"]} htmlFor={id}>
+          {label}
+        </label>
+      ) : null}
+      <select
+        className={styles["form-field__select"]}
+        value={value}
+        onChange={handleChange}
+        tabIndex={tabIndex}
+      >
         {options.map((option: { label: string; value?: string | number }) => (
-          <S.Option key={option.label} value={option.value}>
+          <option
+            className={styles["form-field__option"]}
+            key={option.label}
+            value={option.value}
+          >
             {option.label}
-          </S.Option>
+          </option>
         ))}
-      </S.Select>
-    </S.Wrapper>
+      </select>
+    </div>
   );
 };

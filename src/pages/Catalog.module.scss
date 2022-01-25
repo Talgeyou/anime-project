@@ -1,0 +1,13 @@
+.catalog {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  gap: 2em;
+  padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+  .catalog {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}

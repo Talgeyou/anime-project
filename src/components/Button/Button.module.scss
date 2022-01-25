@@ -1,0 +1,15 @@
+.button {
+  width: 100%;
+  background-color: var(--color-background-main, #fafafa);
+  color: var(--color-text-main, #212121);
+  border: solid 1px var(--color-text-accent, #5d5fef);
+  border-radius: 10px;
+  padding: 0.25em 0.5em;
+  transition: background-color 0.2s ease-out;
+
+  &:focus,
+  &:hover {
+    background-color: var(--color-text-accent, #5d5fef);
+    color: var(--color-accent, #fafafa);
+  }
+}

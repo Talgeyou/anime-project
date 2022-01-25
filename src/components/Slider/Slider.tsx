@@ -7,7 +7,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useRef, useState } from "react";
 
-import * as S from "./Slider.styles";
+import styles from "./Slider.module.scss";
 
 type Props = {
   items: React.ReactNode[];
@@ -122,7 +122,8 @@ export const Slider = React.memo((props: Props) => {
   }, [sliderRef]);
 
   return (
-    <S.Wrapper
+    <div
+      className={styles.slider}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseMove={handleMouseMove}
@@ -130,28 +131,42 @@ export const Slider = React.memo((props: Props) => {
       onTouchEnd={handleTouchEnd}
       onTouchMove={handleTouchMove}
     >
-      <S.LeftArrow
+      <button
+        className={`${styles["slider-arrow"]} ${styles["slider-arrow--left"]}`}
         onClick={handleLeftArrowClick}
         style={{ display: sliderWidth < window.innerWidth ? "none" : "block" }}
       >
-        <FontAwesomeIcon icon={faAngleRight} />
-      </S.LeftArrow>
-      <S.Carousel
-        className={dragging ? "dragging" : undefined}
+        <FontAwesomeIcon
+          className={styles["slider-arrow__icon"]}
+          icon={faAngleRight}
+        />
+      </button>
+      <ul
+        className={
+          dragging
+            ? `${styles["slider-items"]} ${styles["slider-items--dragging"]}`
+            : styles["slider-items"]
+        }
         ref={sliderRef}
         style={sliderStyles}
       >
         {items.map((item, index) => (
-          <S.Item key={index}>{item}</S.Item>
+          <li className={styles["slider-items__item"]} key={index}>
+            {item}
+          </li>
         ))}
-      </S.Carousel>
-      <S.RightArrow
+      </ul>
+      <button
+        className={`${styles["slider-arrow"]} ${styles["slider-arrow--right"]}`}
         onClick={handleRightArrowClick}
         style={{ display: sliderWidth < window.innerWidth ? "none" : "block" }}
       >
-        <FontAwesomeIcon icon={faAngleRight} />
-      </S.RightArrow>
-    </S.Wrapper>
+        <FontAwesomeIcon
+          className={styles["slider-arrow__icon"]}
+          icon={faAngleRight}
+        />
+      </button>
+    </div>
   );
 });
 

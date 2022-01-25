@@ -4,26 +4,15 @@ import { CharacterListType } from "../../types/CharacterList.type";
 import { CharacterCard } from "../CharacterCard/CharacterCard";
 import { Slider } from "../Slider/Slider";
 
-import * as S from "./HorizontalCharacterCardsList.styles";
+import styles from "./HorizontalCharacterCardsList.module.scss";
 
 type Props = { label?: string; characterList: CharacterListType };
 
 export const HorizontalCharacterCardsList = (props: Props) => {
   const { characterList, label } = props;
   return (
-    <S.Wrapper>
-      {label ? <S.Label>{label}</S.Label> : null}
-      {/* <S.Items>
-        {characterList.edges.map(
-          (character: { id: number; role: string; node: CharacterType }) => (
-            <CharacterCard
-              key={character.id}
-              label={character.role}
-              character={character.node}
-            />
-          )
-        )}
-      </S.Items> */}
+    <section className={styles["cards-list--horizontal"]}>
+      {label ? <h3 className={styles["cards-list__label"]}>{label}</h3> : null}
       <Slider
         items={characterList.edges.map(
           (character: { id: number; role: string; node: CharacterType }) => (
@@ -35,6 +24,6 @@ export const HorizontalCharacterCardsList = (props: Props) => {
           )
         )}
       />
-    </S.Wrapper>
+    </section>
   );
 };

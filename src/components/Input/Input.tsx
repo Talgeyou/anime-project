@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import * as S from "./Input.styles";
+import styles from "./Input.module.scss";
 
 type Props = {
   id?: string;
@@ -28,14 +28,19 @@ export const Input = (props: Props) => {
   };
 
   return (
-    <S.Wrapper>
-      {label ? <S.Label htmlFor={id}>{label}</S.Label> : null}
-      <S.Input
+    <div className={styles["form-field"]}>
+      {label ? (
+        <label className={styles["form-field__label"]} htmlFor={id}>
+          {label}
+        </label>
+      ) : null}
+      <input
+        className={styles["form-field__input"]}
         id={id}
         value={value}
         onChange={handleChange}
         tabIndex={tabIndex}
       />
-    </S.Wrapper>
+    </div>
   );
 };

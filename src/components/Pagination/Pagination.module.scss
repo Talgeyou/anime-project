@@ -1,0 +1,18 @@
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  &__button {
+    background-color: var(--color-text-accent, #5d5fef);
+    width: 3em;
+    height: 3em;
+    transition: background-color 0.2s ease-out;
+    &--active,
+    &:hover {
+      background-color: var(--color-text-main, #212121);
+      color: var(--color-background-main, #fafafa);
+    }
+  }
+}

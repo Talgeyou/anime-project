@@ -1,6 +1,6 @@
 import React from "react";
 
-import * as S from "./Button.styles";
+import styles from "./Button.module.scss";
 
 type Props = {
   children: React.ReactNode;
@@ -11,10 +11,8 @@ type Props = {
 export const Button = (props: Props) => {
   const { children, onClick, tabIndex } = props;
   return (
-    <S.Wrapper>
-      <S.Button onClick={onClick} tabIndex={tabIndex}>
-        {children}
-      </S.Button>
-    </S.Wrapper>
+    <button className={styles.button} onClick={onClick} tabIndex={tabIndex}>
+      {children}
+    </button>
   );
 };

@@ -4,11 +4,7 @@ import { Hero } from "../components/Hero/Hero";
 import { Layout } from "../components/Layout/Layout";
 import { Loader } from "../components/Loader/Loader";
 import { SearchField } from "../components/SearchField/SearchField";
-import {
-  currentSeasonQuery,
-  OngoingsQuery,
-  TrendingQuery,
-} from "../queries/Anime.query";
+import { currentSeasonQuery, TrendingQuery } from "../queries/Anime.query";
 
 const HorizontalAnimeCardsList = React.lazy(() =>
   import(

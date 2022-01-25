@@ -1,0 +1,12 @@
+.search {
+  width: 100%;
+  display: flex;
+  padding: 0 40px;
+  &__input {
+    flex: 1;
+    border-radius: 10px;
+    border: solid 1px var(--color-text-accent, #5d5fef);
+    padding: 8px;
+    color: var(--color-text-accent, #5d5fef);
+  }
+}
