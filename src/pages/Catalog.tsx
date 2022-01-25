@@ -1,6 +1,5 @@
 import { useQuery } from "@apollo/client";
 import { useSearchParams } from "react-router-dom";
-import styled from "styled-components";
 import { AnimeList } from "../components/AnimeList/AnimeList";
 import { Layout } from "../components/Layout/Layout";
 import { Loader } from "../components/Loader/Loader";
