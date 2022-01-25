@@ -6,10 +6,10 @@ import { Loader } from "../components/Loader/Loader";
 import { SearchField } from "../components/SearchField/SearchField";
 import { currentSeasonQuery, TrendingQuery } from "../queries/Anime.query";
 
-const HorizontalAnimeCardsList = React.lazy(() =>
-  import(
-    "../components/HorizontalAnimeCardsList/HorizontalAnimeCardsList"
-  ).then((module) => ({ default: module.HorizontalAnimeCardsList }))
+const HorizontalCardsList = React.lazy(() =>
+  import("../components/HorizontalCardsList/HorizontalCardsList").then(
+    (module) => ({ default: module.HorizontalCardsList })
+  )
 );
 
 type Props = {
@@ -71,9 +71,9 @@ export const Home = React.memo((props: Props) => {
                 </div>
               }
             >
-              <HorizontalAnimeCardsList
+              <HorizontalCardsList
                 label={"Winter 2022 anime"}
-                animeList={ongoingsData.Page.media}
+                itemsList={ongoingsData.Page.media}
               />
             </React.Suspense>
           </div>
@@ -103,9 +103,9 @@ export const Home = React.memo((props: Props) => {
                 </div>
               }
             >
-              <HorizontalAnimeCardsList
+              <HorizontalCardsList
                 label={"Trending anime"}
-                animeList={trendingData.Page.media}
+                itemsList={trendingData.Page.media}
               />
             </React.Suspense>
           </div>

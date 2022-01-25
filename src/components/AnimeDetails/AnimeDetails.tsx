@@ -1,7 +1,6 @@
 import React from "react";
 import { AnimeDetailsType } from "../../types/AnimeDetails.type";
-import { HorizontalAnimeCardsList } from "../HorizontalAnimeCardsList/HorizontalAnimeCardsList";
-import { HorizontalCharacterCardsList } from "../HorizontalCharacterCardsList/HorizontalCharacterCardsList";
+import { HorizontalCardsList } from "../HorizontalCardsList/HorizontalCardsList";
 
 import styles from "../../styles/Details.module.scss";
 
@@ -70,12 +69,12 @@ export const AnimeDetails = (props: Props) => {
         <p className={styles["details-meta__text"]}>
           ForAdult?: {anime.isAdult ? "Yes" : "No"}
         </p>
-        <HorizontalCharacterCardsList
+        <HorizontalCardsList
           label={"Characters"}
-          characterList={anime.characters}
+          itemsList={anime.characters}
         />
         {relatedList.length > 0 ? (
-          <HorizontalAnimeCardsList label={"Related"} animeList={relatedList} />
+          <HorizontalCardsList label={"Related"} itemsList={relatedList} />
         ) : null}
       </div>
     </article>

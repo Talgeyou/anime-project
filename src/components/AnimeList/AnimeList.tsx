@@ -1,9 +1,10 @@
-import { AnimeCard } from "../AnimeCard/AnimeCard";
 import { AnimeListType } from "../../types/AnimeList.type";
 import { Pagination } from "../Pagination/Pagination";
 import { URLSearchParamsInit } from "react-router-dom";
 
 import styles from "../../styles/CardsList.module.scss";
+import { Card } from "../Card/Card";
+import { AnimeType } from "../../types/Anime.type";
 
 interface Props {
   animeList: AnimeListType;
@@ -31,7 +32,7 @@ export const AnimeList = (props: Props) => {
         {animeList && animeList.media
           ? animeList.media.map((anime) => (
               <li key={anime.id} className={styles["cards-list-items__item"]}>
-                <AnimeCard anime={anime} />
+                <Card item={anime as AnimeType} />
               </li>
             ))
           : null}

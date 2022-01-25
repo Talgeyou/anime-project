@@ -1,9 +1,5 @@
-import { CharacterType } from "./Character.type";
+import { CharactersEdgeType } from "./CharactersEdge.type";
 
 export type CharacterListType = {
-  edges: {
-    id: number;
-    role: string;
-    node: CharacterType;
-  }[];
+  edges: CharactersEdgeType[];
 };
