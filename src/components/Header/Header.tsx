@@ -36,11 +36,13 @@ export const Header = React.memo((props: Props) => {
           aria-controls={"navigation-menu"}
         >
           <FontAwesomeIcon
+            aria-label={"Close Navigation Menu"}
             aria-hidden={true}
             className={`${styles["header-burger__icon"]} ${styles["header-burger__icon--close"]}`}
             icon={faTimes}
           />
           <FontAwesomeIcon
+            aria-label={"Open Navigation Menu"}
             aria-hidden={true}
             className={`${styles["header-burger__icon"]} ${styles["header-burger__icon--open"]}`}
             icon={faBars}

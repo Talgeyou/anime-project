@@ -21,7 +21,16 @@ export const Card = React.memo((props: Props) => {
     event.preventDefault();
   };
   return (
-    <article className={styles["card"]}>
+    <article
+      className={styles["card"]}
+      aria-labelledby={`${
+        anime
+          ? anime.title.english || anime.title.romaji || anime.title.native
+          : character
+          ? character.name.full
+          : null
+      }-card-${item.id}`}
+    >
       {anime && anime.relationType ? (
         <h3 className={styles["card__label"]}>
           {(item as AnimeType).relationType}
@@ -95,14 +104,24 @@ export const Card = React.memo((props: Props) => {
 
       {anime ? (
         <NavLink to={`/anime/${anime.id}`} onMouseDown={handleMouseDown}>
-          <h4 className={styles["card__title"]}>
+          <h4
+            id={`${
+              anime.title.english || anime.title.romaji || anime.title.native
+            }-card-${item.id}`}
+            className={styles["card__title"]}
+          >
             {anime.title.english || anime.title.romaji || anime.title.native}
           </h4>
         </NavLink>
       ) : null}
 
       {character ? (
-        <h4 className={styles["card__title"]}>{character.name.full}</h4>
+        <h4
+          id={`${character.name.full}-card-${item.id}`}
+          className={styles["card__title"]}
+        >
+          {character.name.full}
+        </h4>
       ) : null}
     </article>
   );

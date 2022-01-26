@@ -33,6 +33,7 @@ export const ThemeSwitcher = (props: Props) => {
     >
       <label className={styles["theme-switcher__label"]}>
         <input
+          aria-label={"Set Light Theme"}
           className={styles["theme-switcher__button"]}
           tabIndex={4}
           type={"radio"}
@@ -49,6 +50,7 @@ export const ThemeSwitcher = (props: Props) => {
 
       <label className={styles["theme-switcher__label"]}>
         <input
+          aria-label={"Set Auto Theme"}
           className={styles["theme-switcher__button"]}
           tabIndex={4}
           type={"radio"}
@@ -65,6 +67,7 @@ export const ThemeSwitcher = (props: Props) => {
 
       <label className={styles["theme-switcher__label"]}>
         <input
+          aria-label={"Set Dark Theme"}
           className={styles["theme-switcher__button"]}
           tabIndex={4}
           type={"radio"}
