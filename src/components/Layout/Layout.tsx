@@ -5,8 +5,8 @@ import styles from "../../styles/Layout.module.scss";
 
 interface Props {
   children?: React.ReactNode;
-  currentTheme: "dark" | "light";
-  onThemeChange: (theme: "dark" | "light") => void;
+  currentTheme: "dark" | "light" | "auto";
+  onThemeChange: (theme: "dark" | "light" | "auto") => void;
 }
 
 export const Layout = React.memo((props: Props) => {

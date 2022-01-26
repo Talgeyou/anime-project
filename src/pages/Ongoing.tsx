@@ -7,8 +7,8 @@ import { OngoingsQuery } from "../queries/Anime.query";
 import { AnimeListType } from "../types/AnimeList.type";
 
 type Props = {
-  currentTheme: "dark" | "light";
-  onThemeChange: (theme: "dark" | "light") => void;
+  currentTheme: "dark" | "light" | "auto";
+  onThemeChange: (theme: "dark" | "light" | "auto") => void;
 };
 
 export const Ongoing = (props: Props) => {

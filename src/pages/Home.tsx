@@ -13,8 +13,8 @@ const HorizontalCardsList = React.lazy(() =>
 );
 
 type Props = {
-  currentTheme: "dark" | "light";
-  onThemeChange: (theme: "dark" | "light") => void;
+  currentTheme: "dark" | "light" | "auto";
+  onThemeChange: (theme: "dark" | "light" | "auto") => void;
 };
 
 export const Home = React.memo((props: Props) => {

@@ -10,8 +10,8 @@ import { AnimeListType } from "../types/AnimeList.type";
 import styles from "./Catalog.module.scss";
 
 type Props = {
-  currentTheme: "dark" | "light";
-  onThemeChange: (theme: "dark" | "light") => void;
+  currentTheme: "dark" | "light" | "auto";
+  onThemeChange: (theme: "dark" | "light" | "auto") => void;
 };
 
 export const Catalog = (props: Props) => {

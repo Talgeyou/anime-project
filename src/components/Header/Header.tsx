@@ -9,8 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
-  currentTheme: "dark" | "light";
-  onThemeChange?: (theme: "dark" | "light") => void;
+  currentTheme: "dark" | "light" | "auto";
+  onThemeChange?: (theme: "dark" | "light" | "auto") => void;
 }
 
 export const Header = React.memo((props: Props) => {

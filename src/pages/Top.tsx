@@ -6,8 +6,8 @@ import { AnimeList } from "../components/AnimeList/AnimeList";
 import { Loader } from "../components/Loader/Loader";
 
 type Props = {
-  currentTheme: "dark" | "light";
-  onThemeChange: (theme: "dark" | "light") => void;
+  currentTheme: "dark" | "light" | "auto";
+  onThemeChange: (theme: "dark" | "light" | "auto") => void;
 };
 
 export const Top = (props: Props) => {

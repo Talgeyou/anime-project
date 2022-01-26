@@ -1,8 +1,8 @@
 .theme-switcher {
   position: relative;
-  width: 3em;
+  width: 5em;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
 
   border: solid 1px var(--color-text-accent, #5d5fef);
@@ -52,13 +52,19 @@
 
   &--light {
     & .theme-switcher__icon--status {
-      transform: translateX(7%);
+      transform: translateX(13%);
+    }
+  }
+
+  &--auto {
+    & .theme-switcher__icon--status {
+      transform: translateX(125%);
     }
   }
 
   &--dark {
     & .theme-switcher__icon--status {
-      transform: translateX(100%);
+      transform: translateX(240%);
     }
   }
 }
