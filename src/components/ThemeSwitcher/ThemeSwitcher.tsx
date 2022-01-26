@@ -42,6 +42,20 @@ export const ThemeSwitcher = (props: Props) => {
           checked={theme === "light"}
           onChange={handleChange}
         />
+        <span
+          style={{
+            border: "0",
+            clip: "rect(0 0 0 0)",
+            height: "1px",
+            margin: "-1px",
+            overflow: "hidden",
+            padding: "0",
+            position: "absolute",
+            width: "1px",
+          }}
+        >
+          Light Theme
+        </span>
         <FontAwesomeIcon
           icon={faSun}
           className={`${styles["theme-switcher__icon"]} ${styles["theme-switcher__icon--sun"]}`}
@@ -59,6 +73,20 @@ export const ThemeSwitcher = (props: Props) => {
           checked={theme === "auto"}
           onChange={handleChange}
         />
+        <span
+          style={{
+            border: "0",
+            clip: "rect(0 0 0 0)",
+            height: "1px",
+            margin: "-1px",
+            overflow: "hidden",
+            padding: "0",
+            position: "absolute",
+            width: "1px",
+          }}
+        >
+          Auto Theme
+        </span>
         <FontAwesomeIcon
           icon={faCircle}
           className={`${styles["theme-switcher__icon"]} ${styles["theme-switcher__icon--auto"]}`}
@@ -76,6 +104,20 @@ export const ThemeSwitcher = (props: Props) => {
           checked={theme === "dark"}
           onChange={handleChange}
         />
+        <span
+          style={{
+            border: "0",
+            clip: "rect(0 0 0 0)",
+            height: "1px",
+            margin: "-1px",
+            overflow: "hidden",
+            padding: "0",
+            position: "absolute",
+            width: "1px",
+          }}
+        >
+          Dark Theme
+        </span>
         <FontAwesomeIcon
           icon={faMoon}
           className={`${styles["theme-switcher__icon"]} ${styles["theme-switcher__icon--moon"]}`}
