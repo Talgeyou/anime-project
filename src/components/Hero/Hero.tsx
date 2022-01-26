@@ -1,12 +1,5 @@
 import React from "react";
 
-import PicturePNG from "../../assets/images/hero-illustration.png";
-import PictureWEBP from "../../assets/images/hero-illustration.webp";
-import PicturePNG1024 from "../../assets/images/hero-illustration-1024w.png";
-import PictureWEBP1024 from "../../assets/images/hero-illustration-1024w.webp";
-import PicturePNG768 from "../../assets/images/hero-illustration-768w.png";
-import PictureWEBP768 from "../../assets/images/hero-illustration-768w.webp";
-
 import styles from "../../styles/Hero.module.scss";
 
 export const Hero = React.memo(() => {
@@ -23,16 +16,28 @@ export const Hero = React.memo(() => {
       </div>
       <div className={styles["hero-image"]}>
         <picture>
-          <source srcSet={PictureWEBP768} media={"(max-width: 768px)"} />
-          <source srcSet={PicturePNG768} media={"(max-width: 768px)"} />
-          <source srcSet={PictureWEBP1024} media={"(max-width: 1024px)"} />
-          <source srcSet={PicturePNG1024} media={"(max-width: 1024px)"} />
-          <source srcSet={PictureWEBP} />
-          <source srcSet={PicturePNG} />
+          <source
+            srcSet={"/assets/images/hero-illustration-768w.webp"}
+            media={"(max-width: 768px)"}
+          />
+          <source
+            srcSet={"/assets/images/hero-illustration-768w.png"}
+            media={"(max-width: 768px)"}
+          />
+          <source
+            srcSet={"/assets/images/hero-illustration-1024w.webp"}
+            media={"(max-width: 1024px)"}
+          />
+          <source
+            srcSet={"/assets/images/hero-illustration-1024w.png"}
+            media={"(max-width: 1024px)"}
+          />
+          <source srcSet={"/assets/images/hero-illustration.webp"} />
+          <source srcSet={"/assets/images/hero-illustration.png"} />
 
           <img
             className={styles["hero-image__picture"]}
-            src={PicturePNG}
+            src={"/assets/images/hero-illustration.png"}
             alt={"illustration"}
           />
         </picture>
