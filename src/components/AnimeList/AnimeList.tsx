@@ -19,7 +19,7 @@ interface Props {
 export const AnimeList = (props: Props) => {
   const { animeList, pagination, setSearchParams, searchParams } = props;
   return (
-    <section className={styles["cards-list"]} role={"region"}>
+    <section className={styles["cards-list"]}>
       {pagination && setSearchParams && searchParams ? (
         <Pagination
           currentPage={animeList.pageInfo.currentPage}

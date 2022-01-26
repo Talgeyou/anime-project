@@ -23,7 +23,6 @@ export const HorizontalCardsList = React.memo((props: Props) => {
 
   return (
     <section
-      role={"region"}
       className={`${styles["cards-list"]} ${styles["cards-list--horizontal"]}`}
     >
       {label ? <h2 className={styles["cards-list__label"]}>{label}</h2> : null}

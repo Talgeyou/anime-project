@@ -4,7 +4,7 @@ import styles from "../../styles/Hero.module.scss";
 
 export const Hero = React.memo(() => {
   return (
-    <section className={styles.hero} role={"region"}>
+    <section className={styles.hero}>
       <div className={styles["hero-text"]}>
         <h1 className={styles["hero-text__title"]}>
           Welcome to&nbsp;the Anime&nbsp;Site
@@ -16,6 +16,30 @@ export const Hero = React.memo(() => {
       </div>
       <div className={styles["hero-image"]}>
         <picture>
+          <source
+            srcSet={"/assets/images/hero-illustration-320w.webp"}
+            media={"(max-width: 320px)"}
+          />
+          <source
+            srcSet={"/assets/images/hero-illustration-320w.png"}
+            media={"(max-width: 320px)"}
+          />
+          <source
+            srcSet={"/assets/images/hero-illustration-375w.webp"}
+            media={"(max-width: 375px)"}
+          />
+          <source
+            srcSet={"/assets/images/hero-illustration-375w.png"}
+            media={"(max-width: 375px)"}
+          />
+          <source
+            srcSet={"/assets/images/hero-illustration-425w.webp"}
+            media={"(max-width: 425px)"}
+          />
+          <source
+            srcSet={"/assets/images/hero-illustration-425w.png"}
+            media={"(max-width: 425px)"}
+          />
           <source
             srcSet={"/assets/images/hero-illustration-768w.webp"}
             media={"(max-width: 768px)"}
