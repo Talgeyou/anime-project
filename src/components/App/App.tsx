@@ -10,9 +10,7 @@ export const App = () => {
   if (savedTheme && (savedTheme === "light" || savedTheme === "dark")) {
     initialTheme = savedTheme;
   } else {
-    initialTheme = matchMedia("(prefers-color-scheme: light)").matches
-      ? "light"
-      : "dark";
+    initialTheme = "auto";
   }
   const [currentTheme, setCurrentTheme] = useState(
     initialTheme as "dark" | "light" | "auto"
