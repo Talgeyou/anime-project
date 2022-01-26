@@ -18,7 +18,7 @@ export const Navigation = React.memo((props: Props) => {
         isActive ? `${styles.navigation} ${styles.active}` : styles.navigation
       }
     >
-      <ul className={styles["navigation-list"]}>
+      <ul className={styles["navigation-list"]} id={"navigation-menu"}>
         {routes
           .filter((route) => route.shouldDisplayInNavigation)
           .map((route) => (
