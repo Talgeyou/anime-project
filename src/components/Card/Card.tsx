@@ -40,8 +40,8 @@ export const Card = React.memo((props: Props) => {
             width={230}
             height={325}
             className={styles["card-image__picture"]}
-            src={anime.coverImage.extraLarge}
-            srcSet={`${anime.coverImage.extraLarge} 1440w, ${anime.coverImage.large} 768w, ${anime.coverImage.medium} 425w`}
+            src={anime.coverImage.large}
+            srcSet={`${anime.coverImage.large} 1440w`}
             alt={`${
               anime.title.english || anime.title.romaji || anime.title.native
             } banner`}
