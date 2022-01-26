@@ -22,7 +22,7 @@ export const Header = React.memo((props: Props) => {
   }, [isNavigationActive]);
 
   return (
-    <header className={styles.header}>
+    <header className={styles.header} role={"banner"}>
       <div className={styles["header-logo"]}>
         <button
           className={

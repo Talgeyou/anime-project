@@ -14,7 +14,9 @@ export const Layout = React.memo((props: Props) => {
   return (
     <div className={styles.page}>
       <Header onThemeChange={onThemeChange} currentTheme={currentTheme} />
-      <main className={styles["page-content"]}>{children}</main>
+      <main className={styles["page-content"]} role={"main"}>
+        {children}
+      </main>
     </div>
   );
 });

@@ -11,7 +11,7 @@ import styles from "../../styles/Hero.module.scss";
 
 export const Hero = React.memo(() => {
   return (
-    <section className={styles.hero}>
+    <section className={styles.hero} role={"region"}>
       <div className={styles["hero-text"]}>
         <h1 className={styles["hero-text__title"]}>
           Welcome to&nbsp;the Anime&nbsp;Site

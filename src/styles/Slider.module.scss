@@ -11,6 +11,10 @@
     top: 50%;
     margin-top: -64px;
 
+    &:focus-visible {
+      outline: solid 1px blueviolet;
+    }
+
     &--left {
       & .slider-arrow__icon {
         transform: rotateY(180deg);

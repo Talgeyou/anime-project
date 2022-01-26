@@ -127,6 +127,7 @@ export const Slider = React.memo((props: Props) => {
       onTouchMove={handleTouchMove}
     >
       <button
+        tabIndex={-1}
         className={`${styles["slider-arrow"]} ${styles["slider-arrow--left"]}`}
         onClick={handleLeftArrowClick}
         style={{ display: sliderWidth < window.innerWidth ? "none" : "block" }}
@@ -152,6 +153,7 @@ export const Slider = React.memo((props: Props) => {
         ))}
       </ul>
       <button
+        tabIndex={-1}
         className={`${styles["slider-arrow"]} ${styles["slider-arrow--right"]}`}
         onClick={handleRightArrowClick}
         style={{ display: sliderWidth < window.innerWidth ? "none" : "block" }}

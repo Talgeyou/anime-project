@@ -61,7 +61,7 @@ export const Catalog = (props: Props) => {
 
   return (
     <Layout onThemeChange={onThemeChange} currentTheme={currentTheme}>
-      <section className={styles.catalog}>
+      <section role={"region"} className={styles.catalog}>
         {data ? (
           <>
             <AnimeList

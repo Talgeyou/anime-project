@@ -37,6 +37,8 @@ export const Card = React.memo((props: Props) => {
           anime.coverImage.large ||
           anime.coverImage.medium) ? (
           <img
+            width={230}
+            height={325}
             className={styles["card-image__picture"]}
             src={anime.coverImage.extraLarge}
             srcSet={`${anime.coverImage.extraLarge} 1440w, ${anime.coverImage.large} 768w, ${anime.coverImage.medium} 425w`}

@@ -23,6 +23,11 @@
     cursor: pointer;
     display: block;
 
+    &:focus-visible {
+      outline: solid 1px blueviolet;
+      outline-offset: 0.4em;
+    }
+
     &:checked ~ .theme-switcher__icon {
       color: var(--color-background-main, #fafafa);
     }

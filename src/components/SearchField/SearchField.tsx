@@ -24,7 +24,7 @@ export const SearchField = React.memo((props: Props) => {
     [navigateToResult]
   );
   return (
-    <section className={styles.search}>
+    <form className={styles.search} role={"search"}>
       <input
         className={styles.search__input}
         placeholder={"Search anime by name..."}
@@ -36,7 +36,7 @@ export const SearchField = React.memo((props: Props) => {
         aria-required={"true"}
         onKeyUp={handleEnterPush}
       />
-    </section>
+    </form>
   );
 });
 
