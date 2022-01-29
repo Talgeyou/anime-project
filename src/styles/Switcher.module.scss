@@ -1,0 +1,35 @@
+.switcher {
+    border: none;
+    margin: 0 40px;
+    align-self: end;
+    width: 4.5em;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5em;
+
+    &__button {
+        width: 2em;
+        height: 2em;
+    }
+
+    &__label {
+        position: relative;
+    }
+
+    &__label:hover {
+        cursor: pointer;
+    }
+
+    &__icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2em !important;
+        height: 2em !important;
+    }
+
+    &__button:checked ~ &__icon {
+        color: var(--color-text-accent);
+    }
+}
