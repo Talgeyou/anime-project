@@ -1,4 +1,5 @@
 import React from "react";
+import { Home } from "./pages/Home";
 
 const Anime = React.lazy(() =>
     import("./pages/Anime").then((module) => ({ default: module.Anime })),
@@ -6,7 +7,6 @@ const Anime = React.lazy(() =>
 const Catalog = React.lazy(() =>
     import("./pages/Catalog").then((module) => ({ default: module.Catalog })),
 );
-const Home = React.lazy(() => import("./pages/Home").then((module) => ({ default: module.Home })));
 const Ongoing = React.lazy(() =>
     import("./pages/Ongoing").then((module) => ({ default: module.Ongoing })),
 );
