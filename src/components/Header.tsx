@@ -6,8 +6,7 @@ import { NavLink } from "react-router-dom";
 
 import styles from "../styles/Header.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faSignInAlt, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "./Button";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
     currentTheme: "dark" | "light" | "auto";

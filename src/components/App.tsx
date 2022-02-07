@@ -1,8 +1,10 @@
+import React from "react";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { routes } from "../routes";
 
 import styles from "../styles/App.module.scss";
+import { Loader } from "./Loader";
 
 export const App = () => {
     let initialTheme = "light";
@@ -30,20 +32,22 @@ export const App = () => {
             }
         >
             <BrowserRouter>
-                <Routes>
-                    {routes.map((route) => (
-                        <Route
-                            key={route.name}
-                            path={route.path}
-                            element={
-                                <route.element
-                                    onThemeChange={handleThemeChange}
-                                    currentTheme={currentTheme}
-                                />
-                            }
-                        />
-                    ))}
-                </Routes>
+                <React.Suspense fallback={<Loader />}>
+                    <Routes>
+                        {routes.map((route) => (
+                            <Route
+                                key={route.name}
+                                path={route.path}
+                                element={
+                                    <route.element
+                                        onThemeChange={handleThemeChange}
+                                        currentTheme={currentTheme}
+                                    />
+                                }
+                            />
+                        ))}
+                    </Routes>
+                </React.Suspense>
             </BrowserRouter>
         </div>
     );
