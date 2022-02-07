@@ -55,9 +55,6 @@ export const Header = React.memo((props: Props) => {
             </div>
             <Navigation isActive={isNavigationActive} />
             <ThemeSwitcher onChange={onThemeChange} currentTheme={currentTheme} />
-            <Button type="link" href="/auth">
-                <FontAwesomeIcon icon={faSignInAlt} />
-            </Button>
         </header>
     );
 });
