@@ -1,13 +1,13 @@
-import { AnimeListType } from "../../types/AnimeList.type";
-import { Pagination } from "../Pagination/Pagination";
+import { AnimeListType } from "../types/AnimeList.type";
+import { Pagination } from "./Pagination";
 import { URLSearchParamsInit } from "react-router-dom";
 
-import styles from "../../styles/CardsList.module.scss";
-import { Card } from "../Card/Card";
-import { AnimeType } from "../../types/Anime.type";
-import { Switcher } from "../Switcher/Switcher";
+import styles from "../styles/CardsList.module.scss";
+import { Card } from "./Card";
+import { AnimeType } from "../types/Anime.type";
+import { Switcher } from "./Switcher";
 import React, { useState } from "react";
-import { CardLarge } from "../CardLarge/CardLarge";
+import { CardLarge } from "./CardLarge";
 
 interface Props {
     animeList: AnimeListType;

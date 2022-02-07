@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import styles from "../../styles/Card.module.scss";
-import { AnimeType } from "../../types/Anime.type";
+import styles from "../styles/Card.module.scss";
+import { AnimeType } from "../types/Anime.type";
 
 type Props = { item: AnimeType };
 

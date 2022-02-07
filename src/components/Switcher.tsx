@@ -2,7 +2,7 @@ import { faTh, faThLarge } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
-import styles from "../../styles/Switcher.module.scss";
+import styles from "../styles/Switcher.module.scss";
 
 type Props = { value: string; onChange: React.ChangeEventHandler<HTMLInputElement> };
 
