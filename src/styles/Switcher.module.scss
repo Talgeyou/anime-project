@@ -27,9 +27,10 @@
         left: 0;
         width: 2em !important;
         height: 2em !important;
+        color: var(--color-text-accent);
     }
 
     &__button:checked ~ &__icon {
-        color: var(--color-text-accent);
+        color: var(--color-text-main);
     }
 }
