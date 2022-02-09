@@ -3,6 +3,7 @@ import { AnimeDetailsType } from "../types/AnimeDetails.type";
 import { HorizontalCardsList } from "./HorizontalCardsList";
 
 import styles from "../styles/Details.module.scss";
+import { Video } from "./Video";
 
 type Props = {
     anime: AnimeDetailsType;
@@ -56,6 +57,12 @@ export const AnimeDetails = (props: Props) => {
                 <p className={styles["details-meta__text"]}>
                     ForAdult?: {anime.isAdult ? "Yes" : "No"}
                 </p>
+                {anime.trailer && anime.trailer.site === "youtube" ? (
+                    <>
+                        <h2 className={styles["details-meta__description"]}>Trailer</h2>
+                        <Video title={anime.title.english} link={anime.trailer.id} />
+                    </>
+                ) : null}
                 <HorizontalCardsList label={"Characters"} itemsList={anime.characters} />
                 {relatedList.length > 0 ? (
                     <HorizontalCardsList label={"Related"} itemsList={relatedList} />

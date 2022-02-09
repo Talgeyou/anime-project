@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { routes } from "../routes";
 
 import styles from "../styles/App.module.scss";
+import { Layout } from "./Layout";
 import { Loader } from "./Loader";
 
 export const App = () => {
@@ -39,10 +40,15 @@ export const App = () => {
                                 key={route.name}
                                 path={route.path}
                                 element={
-                                    <route.element
-                                        onThemeChange={handleThemeChange}
+                                    <Layout
                                         currentTheme={currentTheme}
-                                    />
+                                        onThemeChange={setCurrentTheme}
+                                    >
+                                        <route.element
+                                            onThemeChange={handleThemeChange}
+                                            currentTheme={currentTheme}
+                                        />
+                                    </Layout>
                                 }
                             />
                         ))}

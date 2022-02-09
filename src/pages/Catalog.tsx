@@ -1,7 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { useSearchParams } from "react-router-dom";
 import { AnimeList } from "../components/AnimeList";
-import { Layout } from "../components/Layout";
 import { Loader } from "../components/Loader";
 import { SearchAnimeForm } from "../components/SearchAnimeForm";
 import { CatalogQuery } from "../queries/Anime.query";
@@ -9,13 +8,9 @@ import { AnimeListType } from "../types/AnimeList.type";
 
 import styles from "../styles/Catalog.module.scss";
 
-type Props = {
-    currentTheme: "dark" | "light" | "auto";
-    onThemeChange: (theme: "dark" | "light" | "auto") => void;
-};
+type Props = {};
 
 export const Catalog = (props: Props) => {
-    const { currentTheme, onThemeChange } = props;
     const [searchParams, setSearchParams] = useSearchParams();
     const page = searchParams.get("page");
     const format = searchParams.get("format");
@@ -60,7 +55,7 @@ export const Catalog = (props: Props) => {
     });
 
     return (
-        <Layout onThemeChange={onThemeChange} currentTheme={currentTheme}>
+        <>
             <section className={styles.catalog}>
                 {data ? (
                     <>
@@ -87,6 +82,6 @@ export const Catalog = (props: Props) => {
                     </div>
                 )}
             </section>
-        </Layout>
+        </>
     );
 };

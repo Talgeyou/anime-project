@@ -2,17 +2,12 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { useSearchParams } from "react-router-dom";
 import { AnimeList } from "../components/AnimeList";
-import { Layout } from "../components/Layout";
 import { Loader } from "../components/Loader";
 import { SearchQuery } from "../queries/Anime.query";
 
-type Props = {
-    currentTheme: "dark" | "light" | "auto";
-    onThemeChange: (theme: "dark" | "light" | "auto") => void;
-};
+type Props = {};
 
 export const Search = (props: Props) => {
-    const { currentTheme, onThemeChange } = props;
     const [searchParams, setSearchParams] = useSearchParams();
     const page = searchParams.get("page");
     const search = searchParams.get("search");
@@ -26,7 +21,7 @@ export const Search = (props: Props) => {
     });
     if (data) {
         return (
-            <Layout currentTheme={currentTheme} onThemeChange={onThemeChange}>
+            <>
                 {data.Page ? (
                     <AnimeList
                         animeList={data.Page}
@@ -35,11 +30,11 @@ export const Search = (props: Props) => {
                         setSearchParams={setSearchParams}
                     />
                 ) : null}
-            </Layout>
+            </>
         );
     }
     return (
-        <Layout currentTheme={currentTheme} onThemeChange={onThemeChange}>
+        <>
             <div
                 style={{
                     display: "flex",
@@ -49,6 +44,6 @@ export const Search = (props: Props) => {
             >
                 <Loader />
             </div>
-        </Layout>
+        </>
     );
 };

@@ -1,7 +1,6 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
 import { Hero } from "../components/Hero";
-import { Layout } from "../components/Layout";
 import { Loader } from "../components/Loader";
 import { SearchField } from "../components/SearchField";
 import { currentSeasonQuery, TrendingQuery } from "../queries/Anime.query";
@@ -12,13 +11,9 @@ const HorizontalCardsList = React.lazy(() =>
     })),
 );
 
-type Props = {
-    currentTheme: "dark" | "light" | "auto";
-    onThemeChange: (theme: "dark" | "light" | "auto") => void;
-};
+type Props = {};
 
 export const Home = React.memo((props: Props) => {
-    const { currentTheme, onThemeChange } = props;
     const {
         loading: ongoingsLoading,
         error: ongoingsError,
@@ -42,7 +37,7 @@ export const Home = React.memo((props: Props) => {
         },
     });
     return (
-        <Layout onThemeChange={onThemeChange} currentTheme={currentTheme}>
+        <>
             <SearchField />
             <Hero />
             <div style={{ padding: "0 40px" }}>
@@ -111,7 +106,7 @@ export const Home = React.memo((props: Props) => {
                     </div>
                 ) : null}
             </div>
-        </Layout>
+        </>
     );
 });
 

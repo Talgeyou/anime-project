@@ -1,4 +1,3 @@
-import { Layout } from "../components/Layout";
 import { useQuery } from "@apollo/client";
 import { TopQuery } from "../queries/Anime.query";
 import { AnimeListType } from "../types/AnimeList.type";
@@ -11,7 +10,6 @@ type Props = {
 };
 
 export const Top = (props: Props) => {
-    const { currentTheme, onThemeChange } = props;
     const { loading, error, data } = useQuery(TopQuery, {
         variables: {
             page: 1,
@@ -21,7 +19,7 @@ export const Top = (props: Props) => {
 
     if (loading)
         return (
-            <Layout onThemeChange={onThemeChange} currentTheme={currentTheme}>
+            <>
                 <div
                     style={{
                         display: "flex",
@@ -31,11 +29,11 @@ export const Top = (props: Props) => {
                 >
                     <Loader />
                 </div>
-            </Layout>
+            </>
         );
     if (error)
         return (
-            <Layout onThemeChange={onThemeChange} currentTheme={currentTheme}>
+            <>
                 <div
                     style={{
                         display: "flex",
@@ -45,13 +43,13 @@ export const Top = (props: Props) => {
                 >
                     <Loader />
                 </div>
-            </Layout>
+            </>
         );
     if (data) {
         return (
-            <Layout onThemeChange={onThemeChange} currentTheme={currentTheme}>
+            <>
                 <AnimeList animeList={data.Page as AnimeListType} />
-            </Layout>
+            </>
         );
     }
     return <h1>I don't know what has been happened xD</h1>;
