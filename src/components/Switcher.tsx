@@ -1,3 +1,4 @@
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { faTh, faThLarge } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
@@ -24,7 +25,7 @@ export const Switcher = (props: Props) => {
                     checked={value === "compact"}
                     onChange={onChange}
                 />
-                <FontAwesomeIcon className={styles.switcher__icon} icon={faTh} />
+                <FontAwesomeIcon className={styles.switcher__icon} icon={faTh as IconDefinition} />
             </label>
             <label
                 className={styles.switcher__label}
@@ -40,7 +41,10 @@ export const Switcher = (props: Props) => {
                     checked={value === "cozy"}
                     onChange={onChange}
                 />
-                <FontAwesomeIcon className={styles.switcher__icon} icon={faThLarge} />
+                <FontAwesomeIcon
+                    className={styles.switcher__icon}
+                    icon={faThLarge as IconDefinition}
+                />
             </label>
         </fieldset>
     );

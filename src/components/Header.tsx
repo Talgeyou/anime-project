@@ -7,6 +7,7 @@ import { NavLink } from "react-router-dom";
 import styles from "../styles/Header.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 interface Props {
     currentTheme: "dark" | "light" | "auto";
@@ -39,13 +40,13 @@ export const Header = React.memo((props: Props) => {
                         aria-label={"Close Navigation Menu"}
                         aria-hidden={true}
                         className={`${styles["header-burger__icon"]} ${styles["header-burger__icon--close"]}`}
-                        icon={faTimes}
+                        icon={faTimes as IconDefinition}
                     />
                     <FontAwesomeIcon
                         aria-label={"Open Navigation Menu"}
                         aria-hidden={true}
                         className={`${styles["header-burger__icon"]} ${styles["header-burger__icon--open"]}`}
-                        icon={faBars}
+                        icon={faBars as IconDefinition}
                     />
                 </button>
                 <NavLink tabIndex={1} to={"/"}>

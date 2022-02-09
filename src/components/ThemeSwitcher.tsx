@@ -1,4 +1,5 @@
-import { faCircle, faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { faSun, faCircle, faMoon } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 
@@ -57,7 +58,7 @@ export const ThemeSwitcher = (props: Props) => {
                     Light Theme
                 </span>
                 <FontAwesomeIcon
-                    icon={faSun}
+                    icon={faSun as IconDefinition}
                     className={`${styles["theme-switcher__icon"]} ${styles["theme-switcher__icon--sun"]}`}
                 />
             </label>
@@ -88,7 +89,7 @@ export const ThemeSwitcher = (props: Props) => {
                     Auto Theme
                 </span>
                 <FontAwesomeIcon
-                    icon={faCircle}
+                    icon={faCircle as IconDefinition}
                     className={`${styles["theme-switcher__icon"]} ${styles["theme-switcher__icon--auto"]}`}
                 />
             </label>
@@ -119,13 +120,13 @@ export const ThemeSwitcher = (props: Props) => {
                     Dark Theme
                 </span>
                 <FontAwesomeIcon
-                    icon={faMoon}
+                    icon={faMoon as IconDefinition}
                     className={`${styles["theme-switcher__icon"]} ${styles["theme-switcher__icon--moon"]}`}
                 />
             </label>
 
             <FontAwesomeIcon
-                icon={faCircle}
+                icon={faCircle as IconDefinition}
                 className={`${styles["theme-switcher__icon"]} ${styles["theme-switcher__icon--status"]}`}
             />
         </fieldset>

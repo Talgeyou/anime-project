@@ -1,5 +1,7 @@
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import React, { useEffect, useRef, useState } from "react";
 
 import styles from "../styles/Slider.module.scss";
@@ -129,7 +131,10 @@ export const Slider = React.memo((props: Props) => {
                 onClick={handleLeftArrowClick}
                 style={{ display: sliderWidth < window.innerWidth ? "none" : "block" }}
             >
-                <FontAwesomeIcon className={styles["slider-arrow__icon"]} icon={faAngleRight} />
+                <FontAwesomeIcon
+                    className={styles["slider-arrow__icon"]}
+                    icon={faAngleRight as IconDefinition}
+                />
             </button>
             <ul
                 className={
@@ -152,7 +157,10 @@ export const Slider = React.memo((props: Props) => {
                 onClick={handleRightArrowClick}
                 style={{ display: sliderWidth < window.innerWidth ? "none" : "block" }}
             >
-                <FontAwesomeIcon className={styles["slider-arrow__icon"]} icon={faAngleRight} />
+                <FontAwesomeIcon
+                    className={styles["slider-arrow__icon"]}
+                    icon={faAngleRight as IconDefinition}
+                />
             </button>
         </div>
     );
