@@ -14,16 +14,41 @@ const HorizontalCardsList = React.lazy(() =>
 type Props = {};
 
 export const Home = React.memo((props: Props) => {
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth();
+    const currentSeasonNumber = Math.floor(currentMonth / 3);
+    let currentSeason = null as null | "WINTER" | "SPRING" | "SUMMER" | "FALL";
+    switch (currentSeasonNumber) {
+        case 0:
+            currentSeason = "WINTER";
+            break;
+        case 1:
+            currentSeason = "SPRING";
+            break;
+        case 2:
+            currentSeason = "SUMMER";
+            break;
+        case 3:
+            currentSeason = "FALL";
+            break;
+        default:
+            currentSeason = null;
+    }
+    const currentSeasonAnimeVariables = {
+        page: 1,
+        perPage: 50,
+        sort: "POPULARITY_DESC",
+        season: currentSeason,
+        seasonYear: currentYear,
+    };
+    console.log({ ...currentSeasonAnimeVariables });
     const {
         loading: ongoingsLoading,
         error: ongoingsError,
         data: ongoingsData,
     } = useQuery(currentSeasonQuery, {
-        variables: {
-            page: 1,
-            perPage: 50,
-            sort: "POPULARITY_DESC",
-        },
+        variables: currentSeasonAnimeVariables,
     });
     const {
         loading: trendingLoading,
@@ -67,7 +92,12 @@ export const Home = React.memo((props: Props) => {
                             }
                         >
                             <HorizontalCardsList
-                                label={"Winter 2022 anime"}
+                                label={`${
+                                    currentSeason
+                                        ? currentSeason?.charAt(0).toUpperCase() +
+                                          currentSeason?.slice(1).toLowerCase()
+                                        : null
+                                } ${currentYear} anime`}
                                 itemsList={ongoingsData.Page.media}
                             />
                         </React.Suspense>

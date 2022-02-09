@@ -44,7 +44,13 @@ export const TopQuery = gql`
 `;
 
 export const currentSeasonQuery = gql`
-    query GetCurrentSeason($page: Int, $perPage: Int, $sort: [MediaSort]) {
+    query GetCurrentSeason(
+        $page: Int
+        $perPage: Int
+        $sort: [MediaSort]
+        $season: MediaSeason
+        $seasonYear: Int
+    ) {
         Page(page: $page, perPage: $perPage) {
             pageInfo {
                 total
@@ -53,7 +59,13 @@ export const currentSeasonQuery = gql`
                 lastPage
                 hasNextPage
             }
-            media(type: ANIME, sort: $sort, status: RELEASING, season: WINTER) {
+            media(
+                type: ANIME
+                sort: $sort
+                status: RELEASING
+                season: $season
+                seasonYear: $seasonYear
+            ) {
                 id
                 idMal
                 title {
