@@ -37,15 +37,32 @@ export const AnimeDetails = (props: Props) => {
                     className={styles["details-meta__description"]}
                     dangerouslySetInnerHTML={{ __html: anime.description }}
                 />
-                <p className={styles["details-meta__text"]}>Season: {anime.season}</p>
-                <p className={styles["details-meta__text"]}>Year: {anime.seasonYear}</p>
-                <p className={styles["details-meta__text"]}>Episodes: {anime.episodes}</p>
-                <p className={styles["details-meta__text"]}>Duration: {anime.duration}</p>
-                <p className={styles["details-meta__text"]}>Country: {anime.countryOfOrigin}</p>
-                <p className={styles["details-meta__text"]}>Source: {anime.source}</p>
-                <div className={styles["details-meta-genres"]}>
-                    <p className={styles["details-meta-genres__label"]}>Genres:</p>
-                    <ul className={styles["details-meta-genres-list"]}>
+                <p className={styles["details-meta__text"]}>
+                    <span className={styles["details-meta__label"]}>Season</span>:{" "}
+                    {anime.season.charAt(0).toUpperCase() + anime.season.slice(1).toLowerCase()}
+                </p>
+                <p className={styles["details-meta__text"]}>
+                    <span className={styles["details-meta__label"]}>Year</span>: {anime.seasonYear}
+                </p>
+                <p className={styles["details-meta__text"]}>
+                    <span className={styles["details-meta__label"]}>Episodes</span>:{" "}
+                    {anime.episodes}
+                </p>
+                <p className={styles["details-meta__text"]}>
+                    <span className={styles["details-meta__label"]}>Duration</span>:{" "}
+                    {anime.duration}
+                </p>
+                <p className={styles["details-meta__text"]}>
+                    <span className={styles["details-meta__label"]}>Country</span>:{" "}
+                    {anime.countryOfOrigin}
+                </p>
+                <p className={styles["details-meta__text"]}>
+                    <span className={styles["details-meta__label"]}>Source</span>:{" "}
+                    {anime.source.charAt(0) + anime.source.slice(1).toLowerCase()}
+                </p>
+                <div className={styles["details-meta__genres"]}>
+                    <p className={styles["details-meta__label"]}>Genres:</p>
+                    <ul className={styles["details-meta__genres-list"]}>
                         {anime.genres.map((genre: string) => (
                             <li key={genre} className={styles["details-meta-genres-list__items"]}>
                                 {genre}
@@ -53,15 +70,23 @@ export const AnimeDetails = (props: Props) => {
                         ))}
                     </ul>
                 </div>
-                <p className={styles["details-meta__text"]}>Score: {anime.averageScore / 10}</p>
                 <p className={styles["details-meta__text"]}>
-                    ForAdult?: {anime.isAdult ? "Yes" : "No"}
+                    <span className={styles["details-meta__label"]}>Score</span>:{" "}
+                    {anime.averageScore / 10}/10
+                </p>
+                <p className={styles["details-meta__text"]}>
+                    <span className={styles["details-meta__label"]}>For Adults</span>?:{" "}
+                    {anime.isAdult ? "Yes" : "No"}
                 </p>
                 {anime.trailer && anime.trailer.site === "youtube" ? (
-                    <>
-                        <h2 className={styles["details-meta__description"]}>Trailer</h2>
-                        <Video title={anime.title.english} link={anime.trailer.id} />
-                    </>
+                    <div className={styles["details-meta__trailer"]}>
+                        <h2 className={styles["details-meta__subtitle"]}>Trailer</h2>
+                        <Video
+                            title={anime.title.english}
+                            link={anime.trailer.id}
+                            thumbnailUrl={anime.trailer.thumbnail}
+                        />
+                    </div>
                 ) : null}
                 <HorizontalCardsList label={"Characters"} itemsList={anime.characters} />
                 {relatedList.length > 0 ? (
