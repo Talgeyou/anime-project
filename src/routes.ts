@@ -1,4 +1,5 @@
 import React from "react";
+import { Character } from "./pages/Character";
 import { Home } from "./pages/Home";
 
 const Anime = React.lazy(() =>
@@ -45,6 +46,12 @@ export const routes = [
         name: "Anime",
         path: "/anime/:id",
         element: Anime,
+        shouldDisplayInNavigation: false,
+    },
+    {
+        name: "Character",
+        path: "/character/:id",
+        element: Character,
         shouldDisplayInNavigation: false,
     },
 ];

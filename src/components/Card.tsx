@@ -91,9 +91,11 @@ export const Card = React.memo((props: Props) => {
             ) : null}
 
             {character ? (
-                <h4 id={`character-card-${item.id}`} className={styles["card__title"]}>
-                    {character.name.full}
-                </h4>
+                <NavLink to={`/character/${character.id}`} onMouseDown={handleMouseDown}>
+                    <h4 id={`character-card-${item.id}`} className={styles["card__title"]}>
+                        {character.name.full}
+                    </h4>
+                </NavLink>
             ) : null}
         </article>
     );

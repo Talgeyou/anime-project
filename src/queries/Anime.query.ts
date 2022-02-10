@@ -395,3 +395,31 @@ export const AnimeDetailsQuery = gql`
         }
     }
 `;
+
+export const CharacterDetailsQuery = gql`
+    query GetCharacterDetails($id: Int) {
+        Character(id: $id) {
+            id
+            name {
+                first
+                middle
+                last
+                full
+                native
+            }
+            image {
+                large
+                medium
+            }
+            description(asHtml: true)
+            gender
+            dateOfBirth {
+                year
+                month
+                day
+            }
+            age
+            bloodType
+        }
+    }
+`;
