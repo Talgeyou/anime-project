@@ -1,16 +1,17 @@
 import React from "react";
 
 import styles from "../styles/Hero.module.scss";
+import { Typography } from "./Typography";
 
 export const Hero = React.memo(() => {
     return (
         <section className={styles.hero}>
             <div className={styles["hero-text"]}>
-                <h1 className={styles["hero-text__title"]}>Welcome to&nbsp;the Anime&nbsp;Site</h1>
-                <p className={styles["hero-text__description"]}>
+                <Typography variant={"h1"}>Welcome to&nbsp;the Anime&nbsp;Site</Typography>
+                <Typography variant={"body"}>
                     Here you can find information about a&nbsp;particular anime or&nbsp;discover new
                     anime to&nbsp;watch
-                </p>
+                </Typography>
             </div>
             <div className={styles["hero-image"]}>
                 <picture>

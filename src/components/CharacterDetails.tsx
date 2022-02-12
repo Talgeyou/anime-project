@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../styles/Details.module.scss";
 import { CharacterDetailsType } from "../types/CharacterDetails.type";
+import { Typography } from "./Typography";
 
 type Props = {
     character: CharacterDetailsType;
@@ -10,26 +11,26 @@ export const CharacterDetails = (props: Props) => {
     const { character } = props;
     return (
         <article className={styles["details"]}>
-            <div className={styles["details-meta"]}>
+            <div className={styles["details__meta"]}>
                 <img className={styles["details__image"]} src={character.image?.large} alt={""} />
-                <h1 className={styles["details-meta__title"]}>{character.name.full}</h1>
-                <p
-                    className={styles["details-meta__text"]}
+                <Typography variant={"h1"}>{character.name.full}</Typography>
+                <Typography
+                    variant={"body"}
                     dangerouslySetInnerHTML={{ __html: character.description }}
                 />
-                <p className={styles["details-meta__text"]}>
+                <Typography variant={"body"}>
                     <span className={styles["details-meta__label"]}>Age: </span>
                     {character.age}
-                </p>
-                <p className={styles["details-meta__text"]}>
+                </Typography>
+                <Typography variant={"body"}>
                     <span className={styles["details-meta__label"]}>Gender: </span>
                     {character.gender}
-                </p>
+                </Typography>
                 {character.bloodType ? (
-                    <p className={styles["details-meta__text"]}>
+                    <Typography variant={"body"}>
                         <span className={styles["details-meta__label"]}>BloodType: </span>
                         {character.bloodType}
-                    </p>
+                    </Typography>
                 ) : null}
             </div>
         </article>

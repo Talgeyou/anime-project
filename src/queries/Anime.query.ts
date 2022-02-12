@@ -388,6 +388,11 @@ export const AnimeDetailsQuery = gql`
                             medium
                             color
                         }
+                        averageScore
+                        format
+                        status
+                        episodes
+                        duration
                     }
                 }
             }

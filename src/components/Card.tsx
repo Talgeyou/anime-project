@@ -4,6 +4,7 @@ import { AnimeType } from "../types/Anime.type";
 
 import styles from "../styles/Card.module.scss";
 import { CharacterType } from "../types/Character.type";
+import { Typography } from "./Typography";
 
 interface Props {
     item: AnimeType | CharacterType;
@@ -24,10 +25,16 @@ export const Card = React.memo((props: Props) => {
             aria-labelledby={`${anime ? "anime-" : character ? "character-" : null}card-${item.id}`}
         >
             {anime && anime.relationType ? (
-                <h3 className={styles["card__label"]}>{(item as AnimeType).relationType}</h3>
+                <Typography className={styles["card__label"]} variant={"h3"}>
+                    {(item as AnimeType).relationType}
+                </Typography>
             ) : null}
-            {character && role ? <h4 className={styles["card__label"]}>{role}</h4> : null}
-            <div className={styles["card-image"]}>
+            {character && role ? (
+                <Typography className={styles["card__label"]} variant={"h3"}>
+                    {role}
+                </Typography>
+            ) : null}
+            <div className={styles["card__image-wrapper"]}>
                 {anime &&
                 anime.coverImage &&
                 (anime.coverImage.extraLarge ||
@@ -36,7 +43,7 @@ export const Card = React.memo((props: Props) => {
                     <img
                         width={230}
                         height={325}
-                        className={styles["card-image__picture"]}
+                        className={styles["card__image"]}
                         src={anime.coverImage.large}
                         srcSet={`${anime.coverImage.large} 1440w`}
                         alt={`${
@@ -49,34 +56,34 @@ export const Card = React.memo((props: Props) => {
                 character.image &&
                 (character.image.large || character.image.medium) ? (
                     <img
-                        className={styles["card-image__picture"]}
+                        className={styles["card__image"]}
                         src={character.image.large}
                         srcSet={`${character.image.large} 768w, ${character.image.medium} 425w`}
                         alt={`${character.name.full} banner`}
                         loading="lazy"
                     />
                 ) : null}
-                <div className={styles["card-meta"]}>
+                <div className={styles["card__meta"]}>
                     {anime ? (
                         <>
-                            <p className={styles["card-meta__text"]}>
+                            <Typography variant={"body"}>
                                 Score: {anime.averageScore / 10}/10
-                            </p>
-                            <p className={styles["card-meta__text"]}>Format: {anime.format}</p>
-                            <p className={styles["card-meta__text"]}>Status: {anime.status}</p>
-                            <p className={styles["card-meta__text"]}>Episodes: {anime.episodes}</p>
-                            <p className={styles["card-meta__text"]}>Duration: {anime.duration}</p>
+                            </Typography>
+                            <Typography variant={"body"}>Format: {anime.format}</Typography>
+                            <Typography variant={"body"}>Status: {anime.status}</Typography>
+                            <Typography variant={"body"}>Episodes: {anime.episodes}</Typography>
+                            <Typography variant={"body"}>Duration: {anime.duration}</Typography>
                         </>
                     ) : null}
 
                     {character ? (
                         <>
-                            <p className={styles["card-meta__text"]}>
+                            <Typography variant={"body"}>
                                 Gender: {character.gender ? character.gender : "Unknown"}
-                            </p>
-                            <p className={styles["card-meta__text"]}>
+                            </Typography>
+                            <Typography variant={"body"}>
                                 Age: {character.age ? character.age : "Unknown"}
-                            </p>
+                            </Typography>
                         </>
                     ) : null}
                 </div>
@@ -84,17 +91,25 @@ export const Card = React.memo((props: Props) => {
 
             {anime ? (
                 <NavLink to={`/anime/${anime.id}`} onMouseDown={handleMouseDown}>
-                    <h4 id={`anime-card-${item.id}`} className={styles["card__title"]}>
+                    <Typography
+                        variant={"h4"}
+                        id={`anime-card-${item.id}`}
+                        className={styles["card__title"]}
+                    >
                         {anime.title.english || anime.title.romaji || anime.title.native}
-                    </h4>
+                    </Typography>
                 </NavLink>
             ) : null}
 
             {character ? (
                 <NavLink to={`/character/${character.id}`} onMouseDown={handleMouseDown}>
-                    <h4 id={`character-card-${item.id}`} className={styles["card__title"]}>
+                    <Typography
+                        variant={"h4"}
+                        id={`character-card-${item.id}`}
+                        className={styles["card__title"]}
+                    >
                         {character.name.full}
-                    </h4>
+                    </Typography>
                 </NavLink>
             ) : null}
         </article>
