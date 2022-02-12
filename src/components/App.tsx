@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { routes } from "../routes";
 
 import styles from "../styles/App.module.scss";
+import { ThemeType } from "../types/Theme.type";
 import { Layout } from "./Layout";
 import { Loader } from "./Loader";
 
@@ -15,9 +16,9 @@ export const App = () => {
     } else {
         initialTheme = "auto";
     }
-    const [currentTheme, setCurrentTheme] = useState(initialTheme as "dark" | "light" | "auto");
+    const [currentTheme, setCurrentTheme] = useState(initialTheme as ThemeType);
 
-    const handleThemeChange = (theme: "dark" | "light" | "auto") => {
+    const handleThemeChange = (theme: ThemeType) => {
         setCurrentTheme(theme);
         localStorage.setItem("theme", theme);
     };

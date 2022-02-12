@@ -4,15 +4,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 
 import styles from "../styles/ThemeSwitcher.module.scss";
+import { ThemeType } from "../types/Theme.type";
 
 type Props = {
-    currentTheme: "light" | "dark" | "auto";
-    onChange?: (theme: "dark" | "light" | "auto") => void;
+    currentTheme: ThemeType;
+    onChange?: (theme: ThemeType) => void;
 };
 
 export const ThemeSwitcher = (props: Props) => {
     const { currentTheme, onChange } = props;
-    const [theme, setTheme] = useState(currentTheme as "dark" | "light" | "auto");
+    const [theme, setTheme] = useState(currentTheme as ThemeType);
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.currentTarget.value;
         if (value === "dark" || value === "light" || value === "auto") {

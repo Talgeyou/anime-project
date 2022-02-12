@@ -2,11 +2,12 @@ import React from "react";
 import { Header } from "./Header";
 
 import styles from "../styles/Layout.module.scss";
+import { ThemeType } from "../types/Theme.type";
 
 interface Props {
     children?: React.ReactNode;
-    currentTheme: "dark" | "light" | "auto";
-    onThemeChange: (theme: "dark" | "light" | "auto") => void;
+    currentTheme: ThemeType;
+    onThemeChange: (theme: ThemeType) => void;
 }
 
 export const Layout = React.memo((props: Props) => {
