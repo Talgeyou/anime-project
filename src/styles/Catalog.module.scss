@@ -3,10 +3,7 @@
     grid-template-columns: 70% 30%;
     gap: 2em;
     padding: 0 40px;
-}
-
-@media (max-width: 768px) {
-    .catalog {
+    @media (max-width: 768.98px) {
         display: flex;
         flex-direction: column-reverse;
     }

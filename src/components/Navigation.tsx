@@ -14,7 +14,7 @@ export const Navigation = React.memo((props: Props) => {
     const { pathname } = location;
     return (
         <nav className={isActive ? `${styles.navigation} ${styles.active}` : styles.navigation}>
-            <ul className={styles["navigation-list"]} id={"navigation-menu"}>
+            <ul className={styles["navigation__list"]} id={"navigation-menu"}>
                 {routes
                     .filter((route) => route.shouldDisplayInNavigation)
                     .map((route) => (
@@ -22,8 +22,8 @@ export const Navigation = React.memo((props: Props) => {
                             key={route.name}
                             className={
                                 pathname === route.path
-                                    ? `${styles["navigation-list__item"]} ${styles.active}`
-                                    : styles["navigation-list__item"]
+                                    ? `${styles["navigation__list-item"]} ${styles.active}`
+                                    : styles["navigation__list-item"]
                             }
                         >
                             <NavLink tabIndex={3} to={route.path}>

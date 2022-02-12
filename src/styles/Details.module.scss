@@ -56,6 +56,9 @@
         flex-direction: column;
         gap: 0.5em;
         width: 100%;
+        @media (min-height: 768.98px) {
+            max-height: 768px;
+        }
     }
 
     &__trailer,
@@ -65,13 +68,5 @@
         display: flex;
         flex-direction: column;
         gap: 0.5em;
-    }
-}
-
-@media (min-height: 768.98px) {
-    .details {
-        &__trailer {
-            max-height: 768px;
-        }
     }
 }
