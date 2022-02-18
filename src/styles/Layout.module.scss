@@ -17,3 +17,13 @@
         overflow-x: hidden;
     }
 }
+
+.container {
+    width: 100vw;
+    padding: 0 40px;
+    display: flex;
+    &--centered {
+        justify-content: center;
+        align-items: center;
+    }
+}

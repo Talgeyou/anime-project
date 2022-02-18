@@ -34,7 +34,13 @@ export const App = () => {
             }
         >
             <BrowserRouter>
-                <React.Suspense fallback={<Loader />}>
+                <React.Suspense
+                    fallback={
+                        <div className={`${styles["container"]} ${styles["container--centered"]}`}>
+                            <Loader />
+                        </div>
+                    }
+                >
                     <Routes>
                         {routes.map((route) => (
                             <Route

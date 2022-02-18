@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { AnimeDetails } from "../components/AnimeDetails";
 import { Loader } from "../components/Loader";
 import { AnimeDetailsQuery } from "../queries/Anime.query";
+import styles from "../styles/Layout.module.scss";
 
 type Props = {};
 
@@ -15,23 +16,11 @@ export const Anime = (props: Props) => {
     return (
         <>
             {loading ? (
-                <div
-                    style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                    }}
-                >
+                <div className={`${styles["container"]} ${styles["container--centered"]}`}>
                     <Loader />
                 </div>
             ) : error ? (
-                <div
-                    style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                    }}
-                >
+                <div className={`${styles["container"]} ${styles["container--centered"]}`}>
                     <h1>Not Found</h1>
                 </div>
             ) : data ? (

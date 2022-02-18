@@ -5,7 +5,6 @@ import { App } from "./components/App";
 import reportWebVitals from "./reportWebVitals";
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import { ThemeProvider } from "styled-components";
 
 const client = new ApolloClient({
     uri: "https://graphql.anilist.co/",

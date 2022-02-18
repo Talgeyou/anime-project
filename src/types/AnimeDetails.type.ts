@@ -1,12 +1,10 @@
 import { AnimeType } from "./Anime.type";
+import { AnimeRelationsType } from "./AnimeRelations.type";
+import { AnimeTrailerType } from "./AnimeTrailer.type";
 import { CharacterListType } from "./CharacterList.type";
 
 export type AnimeDetailsType = AnimeType & {
-    trailer: {
-        id: string;
-        site: "youtube" | "dailymotion";
-        thumbnail: string;
-    };
+    trailer: AnimeTrailerType;
     bannerImage: string;
     description: string;
     source: string;
@@ -16,11 +14,5 @@ export type AnimeDetailsType = AnimeType & {
     genres: string[];
     synonyms: string[];
     characters: CharacterListType;
-    relations: {
-        edges: {
-            id: number;
-            relationType: string;
-            node: AnimeType;
-        }[];
-    };
+    relations: AnimeRelationsType;
 };
