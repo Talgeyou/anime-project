@@ -31,8 +31,8 @@ export const SearchAnimeForm = (props: Props) => {
     const [releaseYear, handleReleaseYearChange] = useInput(oldReleaseYear ? oldReleaseYear : "");
     const [isAdult, handleIsAdultChange] = useInput(oldIsAdult !== null ? oldIsAdult : undefined);
     const [sort, handleSortChange] = useInput(oldSort ? oldSort : "START_DATE_DESC");
-    const handleSubmitButtonClick = useCallback(
-        (event: React.MouseEvent<HTMLButtonElement>) => {
+    const handleSubmit = useCallback(
+        (event: React.FormEvent) => {
             event.preventDefault();
             const newSearchParams = new URLSearchParams();
             if (format) {
@@ -58,7 +58,7 @@ export const SearchAnimeForm = (props: Props) => {
         [episodes, format, isAdult, releaseYear, setSearchParams, sort, status],
     );
     return (
-        <form className={styles["form"]}>
+        <form className={styles["form"]} onSubmit={handleSubmit}>
             <Select
                 tabIndex={5}
                 id={"format"}
@@ -133,7 +133,7 @@ export const SearchAnimeForm = (props: Props) => {
                     { label: "Release Date Ascending", value: "START_DATE" },
                 ]}
             />
-            <Button onClick={handleSubmitButtonClick} tabIndex={5} fluid>
+            <Button tabIndex={5} fluid>
                 Find
             </Button>
         </form>
